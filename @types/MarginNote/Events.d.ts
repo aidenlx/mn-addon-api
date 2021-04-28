@@ -1,7 +1,7 @@
 import { DocumentController } from "./Application";
 import { MbBookNote } from "./NoteDatabase";
 
-type NotifySender = {
+export type NotifySender = {
   [k:string]: any;
   userInfo: {
     [k:string]: any;

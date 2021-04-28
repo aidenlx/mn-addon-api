@@ -178,7 +178,7 @@ function parseProp(line: string) {
     .slice(0, -1)
     .trimRight() // remove ";"
   const match = out.match(
-    /^(?:\((?<prop>[^\(\)]+)\) *)?(?<type>.+?) +(?<name>\*?[\w, \*]+)$/
+    /^(?:\((?<prop>[^\(\)]+)\) *)?(?<type>.+) +(?<name>\*?[\w, \*]+)$/
   );
   if (match && match.groups) {
     let { prop, type, name } = match.groups;

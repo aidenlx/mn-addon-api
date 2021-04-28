@@ -1,11 +1,11 @@
 {
   "name": "@alx-plugins/marginnote",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "Unofficial type definitions for MarginNote 3 addon API",
   "types": "out.d.ts",
   "files": [
     "out.d.ts"
-   ],
+  ],
   "main": "",
   "scripts": {
     "build": "find @types -type f -name '*.d.ts' -exec cat {} + >>out.d.ts"

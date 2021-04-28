@@ -12,6 +12,8 @@ export type NSIndexPath = any;
 
 export type NSMutableArray<T=any> = Array<T>;
 
+export type NSIndexSet = any;
+
 export class NSNotification {
   /**
    * @param aName NSString*

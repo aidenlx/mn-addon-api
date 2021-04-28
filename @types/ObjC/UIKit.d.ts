@@ -14,3 +14,15 @@ export type UIColor = any;
 export type CGPoint = any;
 
 export type CGRect = any;
+
+export type CGSize = any;
+
+export type CGFloat = any;
+
+export type CGBlendMode = any;
+
+export type UIEdgeInsets = any;
+
+export * from "./_UIPasteboard";
+
+export * from "./_UIImage";

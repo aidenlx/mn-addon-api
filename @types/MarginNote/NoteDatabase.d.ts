@@ -1,6 +1,5 @@
 export {};
 
-/// <reference path="_MbBookNote.d.ts" />
 
 declare global {
   class MbBook {

@@ -1,16 +1,5 @@
 export {};
 
-/// <reference path="JSExtension.d.ts" />
-/// <reference path="misc.d.ts" />
-
-/// <reference path="Objc/Foundation.d.ts" />
-/// <reference path="Objc/UIKit.d.ts" />
-
-/// <reference path="MarginNote/Application.d.ts" />
-/// <reference path="MarginNote/Events.d.ts" />
-/// <reference path="MarginNote/NoteDatabase.d.ts" />
-/// <reference path="MarginNote/Utility.d.ts" />
-
 declare global {
   const JSB: {
     /**

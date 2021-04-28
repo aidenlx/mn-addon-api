@@ -1,6 +1,5 @@
 export {};
 
-/// <reference path="_SQLite.d.ts" />
 
 declare global {
   class MenuController {

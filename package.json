@@ -1,6 +1,6 @@
 {
   "name": "@alx-plugins/marginnote",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Unofficial type definitions for MarginNote 3 addon API",
   "types": "@types/main.d.ts",
   "main": "",

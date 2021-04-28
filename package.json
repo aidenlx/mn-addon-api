@@ -1,0 +1,21 @@
+{
+  "name": "@alx-plugins/marginnote",
+  "version": "0.2.0",
+  "description": "Unofficial type definitions for MarginNote 3 addon API",
+  "types": "@types/main.d.ts",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alx-plugins/mn-addon-api.git"
+  },
+  "author": "AidenLx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alx-plugins/mn-addon-api/issues"
+  },
+  "homepage": "https://github.com/alx-plugins/mn-addon-api",
+  "devDependencies": {
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}

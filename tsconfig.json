@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
+    "baseUrl": "@types",
     "sourceMap": true,
     "noImplicitAny": true,
     "moduleResolution": "node",
@@ -11,6 +12,6 @@
     ]
   },
   "include": [
-    "*.ts",
+    "*.ts","@types/**/*.d.ts"
   ]
 }

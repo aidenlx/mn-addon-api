@@ -1,1 +1,4 @@
 API/**/*.d.ts
+node_modules
+package-lock.json
+types.json

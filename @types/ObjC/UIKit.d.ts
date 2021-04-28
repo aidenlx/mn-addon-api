@@ -4,6 +4,8 @@ export type UIView = any;
 
 export type UIViewController = any;
 
+export type UILocalNotification = any;
+
 export type UITableView = any;
 
 export type UIColor = any;

@@ -1,6 +1,6 @@
-import { DictObj } from "misc";
-import { NSDictionary } from "ObjC/Foundation";
-import { CGPoint } from "ObjC/UIKit";
+import { DictObj } from "../misc";
+import { NSDictionary } from "../ObjC/Foundation";
+import { CGPoint } from "../ObjC/UIKit";
 import { MbTopic, MbBook } from "./NoteDatabase";
 
 export class MbBookNote {

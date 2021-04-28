@@ -1,5 +1,5 @@
-import { DictObj, WrapperObj } from "misc";
-import { NSData } from "ObjC/Foundation";
+import { DictObj, WrapperObj } from "../misc";
+import { NSData } from "../ObjC/Foundation";
 
 export * from "./_MbBookNote"
 

@@ -1,6 +1,6 @@
-import { WrapperObj } from "misc";
-import { JSValue, NSData } from "ObjC/Foundation";
-import { UITableView, UIWindow } from "ObjC/UIKit";
+import { WrapperObj } from "../misc";
+import { JSValue, NSData } from "../ObjC/Foundation";
+import { UITableView, UIWindow } from "../ObjC/UIKit";
 
 export * from "./_SQLite";
 

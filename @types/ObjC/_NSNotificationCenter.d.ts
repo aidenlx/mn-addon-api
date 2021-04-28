@@ -1,5 +1,5 @@
-import { Events } from "MarginNote/Events";
-import { WrapperObj, DictObj } from "misc";
+import { Events } from "../MarginNote/Events";
+import { WrapperObj, DictObj } from "../misc";
 import { NSNotification } from "./Foundation";
 
 

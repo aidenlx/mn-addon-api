@@ -1,4 +1,4 @@
-import { WrapperObj, DictObj } from "misc";
+import { WrapperObj, DictObj } from "../misc";
 
 export type NSURL = any;
 

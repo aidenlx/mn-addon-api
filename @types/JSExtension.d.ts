@@ -1,5 +1,5 @@
-import { DictObj } from "misc";
-import { UIWindow, UIViewController, UILocalNotification } from "ObjC/UIKit";
+import { DictObj } from "./misc";
+import { UIWindow, UIViewController, UILocalNotification } from "./ObjC/UIKit";
 
 export default class JSExtension {
   readonly window?: UIWindow; 

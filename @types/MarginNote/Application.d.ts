@@ -1,7 +1,7 @@
-import { JSValue, NSDictionary, NSIndexPath, NSMutableArray, NSURL } from "ObjC/Foundation";
-import { UIWindow, UIView, UIViewController, UIColor, CGRect } from "ObjC/UIKit";
+import { JSValue, NSDictionary, NSIndexPath, NSMutableArray, NSURL } from "../ObjC/Foundation";
+import { UIWindow, UIView, UIViewController, UIColor, CGRect } from "../ObjC/UIKit";
 import { MbBook, MbBookNote } from "./NoteDatabase";
-import { WrapperObj, DictObj } from "misc";
+import { WrapperObj, DictObj } from "../misc";
 
 export class Application {
   static sharedInstance(): Application;

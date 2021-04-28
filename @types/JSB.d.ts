@@ -19,11 +19,11 @@ type newAddonClass = any;
 
 type InstMembers = {
   [k in Exclude<keyof JSExtension,"window">]?: JSExtension[k]
-};
+} & {[k:string]:any} ;
 
 type ClsMembers = {
   [k in Exclude<keyof typeof JSExtension,"prototype">]?: typeof JSExtension[k]
-};
+} & {[k:string]:any} ;
 
 export declare const self : {
   [k:string]: any;

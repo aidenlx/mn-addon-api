@@ -35,12 +35,14 @@ generics.test = function (this: typesTest, src:string): { name: string; hint?: s
   for (let [typeName, regex] of this.entries()) {
     if (regex.test(src)){
       const match = src.match(regex) as RegExpMatchArray;
-      let ofType = match?.groups?.ofType??"";
+      let ofType = match?.groups?.ofType;
       if (ofType){
         ofType = `<${mapType(ofType).name}>`;
+      } else {
+        ofType = "<any>";
       }
       return {
-        name: "Array" + ofType,
+        name: typeName + ofType,
         hint: match[0] !== match[1] ? src : undefined,
       };
     }
@@ -57,7 +59,6 @@ const hintAll = new Map([
 hintAll.test = function (this: typesTest, src:string): { name: string; hint?: string }  | null{
   for (let [typeName, regex] of this.entries()) {
     if (regex.test(src)){
-      const match = src.match(regex) as RegExpMatchArray;
       return {
         name: typeName,
         hint: src,

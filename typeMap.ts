@@ -37,7 +37,7 @@ generics.test = function (this: typesTest, src:string): { name: string; hint?: s
       const match = src.match(regex) as RegExpMatchArray;
       let ofType = match?.groups?.ofType;
       if (ofType){
-        ofType = `<${mapType(ofType).name}>`;
+        ofType = `<${mapType(ofType.replace(/^JSB/g,"")).name}>`;
       } else {
         ofType = "<any>";
       }
@@ -76,7 +76,7 @@ export function mapType(raw: string): { name: string; hint?: string; } {
     .replace(/%20/g, " ")
     .replace(/%28/g, "(")
     .replace(/%29/g, ")")
-    .replace(/\s+(?=[<,])|(?<=,)\s+/g,"");
+    .replace(/\s+(?=[<,])|(?<=,)\s+/g,"")
 
   for (const item of map) {
     let result = item.test(src);

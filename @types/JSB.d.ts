@@ -31,4 +31,9 @@ declare const self : {
   view: any;
   navigationItem: any;
   webView: any;
-}
+};
+
+declare const WebViewController : {
+  [k:string]: any;
+  new():any;
+};

@@ -1,6 +1,6 @@
 export interface typesTest<K extends string = string, V extends RegExp = RegExp>
   extends Map<K, V> {
-  test(this: typesTest, src:string): { name: string; hint?: string } | null;
+  test(this: typesTest, src:string, isProp:boolean): { name: string; hint?: string } | null;
 }
 
 const simple = new Map([
@@ -14,13 +14,13 @@ const simple = new Map([
     /^(?:out )?(NSString)\**$|^(?:const )?(?:unsigned )?((?:uni)?char)\*?$|^UTF32Char$/,
   ],
 ]) as typesTest;
-simple.test = function (this: typesTest, src:string): { name: string; hint?: string }  | null{
+simple.test = function (this: typesTest, src:string, isProp:boolean): { name: string; hint?: string }  | null{
   for (let [typeName, regex] of this.entries()) {
     if (regex.test(src)){
       const match = src.match(regex) as RegExpMatchArray;
       return {
         name: typeName,
-        hint: match[0] !== match[1] ? src : undefined,
+        hint: (!isProp && match[0] !== match[1]) ? src : undefined,
       };
     }
   }
@@ -31,7 +31,7 @@ const generics = new Map([
   ["Array", /^(NSArray)(?:<(?<ofType>\w+\*?)>)?\*?$/],
   ["WrapperObj", /^(id)(?:<(?<ofType>\w+\*?)>)?\*?$/],
 ]) as typesTest;
-generics.test = function (this: typesTest, src:string): { name: string; hint?: string }  | null{
+generics.test = function (this: typesTest, src:string, isProp:boolean): { name: string; hint?: string }  | null{
   for (let [typeName, regex] of this.entries()) {
     if (regex.test(src)){
       const match = src.match(regex) as RegExpMatchArray;
@@ -43,7 +43,7 @@ generics.test = function (this: typesTest, src:string): { name: string; hint?: s
       }
       return {
         name: typeName + ofType,
-        hint: match[0] !== match[1] ? src : undefined,
+        hint: (!isProp && match[0] !== match[1]) ? src : undefined,
       };
     }
   }
@@ -56,7 +56,7 @@ const hintAll = new Map([
     /^(?:const )?(?:unsigned )?(?:long )*(?:u?int\d{1,2}_t|int|short|long|double|float)\*?$|^(?:unsigned|size_t|NSInteger)\*?$/,
   ],
 ]) as typesTest;
-hintAll.test = function (this: typesTest, src:string): { name: string; hint?: string }  | null{
+hintAll.test = function (this: typesTest, src:string, isProp:boolean): { name: string; hint?: string }  | null{
   for (let [typeName, regex] of this.entries()) {
     if (regex.test(src)){
       return {
@@ -70,7 +70,7 @@ hintAll.test = function (this: typesTest, src:string): { name: string; hint?: st
 
 const map = [ simple, generics, hintAll ];
 
-export function mapType(raw: string): { name: string; hint?: string; } {
+export function mapType(raw: string, isProp:boolean=false): { name: string; hint?: string; } {
   let src = raw
     .trim()
     .replace(/%20/g, " ")
@@ -79,14 +79,14 @@ export function mapType(raw: string): { name: string; hint?: string; } {
     .replace(/\s+(?=[<,])|(?<=,)\s+/g,"")
 
   for (const item of map) {
-    let result = item.test(src);
+    let result = item.test(src, isProp);
     if (result) return result;
   }
 
   if (src.endsWith("*"))
     return {
       name: src.replace(/\*+$/, ""),
-      hint: src,
+      hint: isProp ? undefined : src,
     };
   else
     return {

@@ -1,4 +1,5 @@
 import { mapType as mapTypeCore } from "./typeMap";
+import assertNever from "assert-never";
 
 type a =
   | { type: "prop"; hint: string }
@@ -77,6 +78,11 @@ const tsFuncDef = (name: string, retrunType: string, args: Array<{ name: string;
       .join(", ");
 
 
+  return renderHints(hints) + `${mark}${name}(${argText}): ${mapRetType.name}; `;
+
+};
+
+function renderHints(hints:Hint[]) {
   let hintComment;
   if (hints.length > 0) {
     hintComment =
@@ -91,16 +97,20 @@ const tsFuncDef = (name: string, retrunType: string, args: Array<{ name: string;
             case "ret":
               hintStr += `@returns ${v.hint}`;
               break;
+            case "prop":
+              hintStr += ` ${v.hint}`;
+              break;
+            default:
+              assertNever(v);
           }
           return hintStr;
         })
         .join("\n") +
       "\n */\n";
   } else hintComment = "";
-
-  return hintComment + `${mark}${name}(${argText}): ${mapRetType.name}; `;
-
-};
+  
+  return hintComment;
+}
 
 export function parseFunc(line: string) {
 
@@ -154,20 +164,21 @@ const tsPropDef = (name: string, type: string, mark: string | null | undefined) 
     type += "*";
   }
 
-  const hints: Array<Hint> = [];
-
-  let mapPropType = mapType(type);
-
-  if (mapPropType.hint?.endsWith("*")){
+  if (type.endsWith("*")){
     name += "?";
   }
 
-  if (mapPropType.hint)
+  const hints: Array<Hint> = [];
+
+  const { name: typeName, hint } = mapType(type, true);
+
+  if (hint)
     hints.push({
       type: "prop",
-      hint: mapPropType.hint,
+      hint,
     });
-  return `${mark}${name}: ${mapPropType.name}; `;
+
+  return renderHints(hints) + `${mark}${name}: ${typeName}; `;
 };
 
 function parseProp(line: string) {
@@ -240,8 +251,8 @@ function bracketTrim(line: string,level=1) {
 
 export const allTypes : Set<string> = new Set();
 
-function mapType(raw:string) {
-  const value = mapTypeCore(raw);
+function mapType(raw:string,isProp:boolean=false) {
+  const value = mapTypeCore(raw,isProp);
   allTypes.add(value.name);
   return value;
 }

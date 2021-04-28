@@ -18,7 +18,7 @@ const writeFile = promisify(wf);
     newFile.base = newFile.name + newFile.ext;
     let raw = await readFile(fullPath, "utf-8");
 
-    const out = [`export default class ${newFile.name} {`];
+    const out = [`export class ${newFile.name} {`];
 
     let rawLines = raw
       .replace(/^(JSExportAs.+)\n/gm, "$1")

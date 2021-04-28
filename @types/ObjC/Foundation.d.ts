@@ -35,3 +35,5 @@ export class NSNotification {
 export * from "./_NSNotificationCenter";
 
 export * from "./_NSUserDefaults";
+
+export * from "./_NSLocale";

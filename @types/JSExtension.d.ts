@@ -1,4 +1,4 @@
-import { DictObj } from "./misc";
+import { DictObj, WrapperObj } from "./misc";
 import { UIWindow, UIViewController, UILocalNotification } from "./ObjC/UIKit";
 
 export default class JSExtension {
@@ -30,7 +30,14 @@ export default class JSExtension {
   /**
    * @returns NSDictionary*
    */
-  queryAddonCommandStatus(): DictObj; 
+  queryAddonCommandStatus(): {
+    /** path to icon file */
+    image: string,
+    object: WrapperObj<any>,
+    /** the function name of handler to toggle plugin in {@link InstMember} */
+    selector: string,
+    checked: boolean,
+  } | null;
   /**
    * @returns NSArray*
    * @param topicid NSString*

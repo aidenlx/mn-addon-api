@@ -147,15 +147,17 @@ export function parseFunc(line: string) {
 const tsPropDef = (name: string, type: string, mark: string | null | undefined) => {
   mark = mark ? mark.trim() + " " : "";
 
+  name = name.trim();
+
+  if (name.startsWith("*")){
+    name = name.substring(1);
+    type += "*";
+  }
+
   const hints: Array<Hint> = [];
 
   let mapPropType = mapType(type);
 
-  name = name.trim();
-
-  if (name.startsWith("*"))
-    name = name.substring(1);
-    
   if (mapPropType.hint?.endsWith("*")){
     name += "?";
   }

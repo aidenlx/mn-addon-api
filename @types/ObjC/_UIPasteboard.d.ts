@@ -1,8 +1,5 @@
-import { NSURL, NSData, NSIndexSet } from "./Foundation";
-import { UIColor, UIImage } from "./UIKit"
-import { WrapperObj } from "../misc";
 
-export declare class UIPasteboard {
+declare class UIPasteboard {
   persistent: boolean; 
   string?: string; 
   /**

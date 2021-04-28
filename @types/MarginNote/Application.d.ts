@@ -1,9 +1,5 @@
-import { JSValue, NSDictionary, NSIndexPath, NSMutableArray, NSURL } from "../ObjC/Foundation";
-import { UIWindow, UIView, UIViewController, UIColor, CGRect } from "../ObjC/UIKit";
-import { MbBook, MbBookNote } from "./NoteDatabase";
-import { WrapperObj, DictObj } from "../misc";
 
-export declare class Application {
+declare class Application {
   static sharedInstance(): Application;
 
   readonly currentTheme? : string;
@@ -121,7 +117,7 @@ declare const enum osType {
   macOS = 2
 }
 
-export declare class DocumentController {
+declare class DocumentController {
   readonly document?: MbBook; 
   readonly docMd5?: string; 
   readonly notebookId?: string; 
@@ -130,7 +126,7 @@ export declare class DocumentController {
   readonly selectionText?: string; 
 }
 
-export declare class MindMapNode {
+declare class MindMapNode {
   readonly note?: MbBookNote; 
   readonly parentNode?: MindMapNode; 
   readonly summaryLinks?: Array<any>; 
@@ -138,12 +134,12 @@ export declare class MindMapNode {
   readonly frame: CGRect; 
 }
 
-export declare class MindMapView {
+declare class MindMapView {
   readonly mindmapNodes?: Array<MindMapNode>; 
   readonly selViewLst?: Array<any>; 
 }
 
-export declare class NotebookController {
+declare class NotebookController {
   readonly outlineView: WrapperObj<OutlineView>; 
   readonly mindmapView: WrapperObj<MindMapView>; 
   readonly notebookId?: string; 
@@ -151,7 +147,7 @@ export declare class NotebookController {
   readonly visibleFocusNote?: MbBookNote; 
 }
 
-export declare class OutlineView {
+declare class OutlineView {
   /**
    * @returns MbBookNote*
    * @param indexPath NSIndexPath*
@@ -159,7 +155,7 @@ export declare class OutlineView {
   noteFromIndexPath(indexPath: NSIndexPath): MbBookNote; 
 }
 
-export declare class ReaderController {
+declare class ReaderController {
   readonly currentDocumentController: WrapperObj<DocumentController>; 
   readonly documentControllers?: NSMutableArray; 
 }
@@ -178,8 +174,7 @@ declare const enum docMapSplitMode {
   allDoc = 2,
 }
 
-
-export declare class StudyController {
+declare class StudyController {
 
   readonly studyMode: studyMode;
   readonly narrowMode: boolean;  //when narrowmode, book split mode 1 is disabled

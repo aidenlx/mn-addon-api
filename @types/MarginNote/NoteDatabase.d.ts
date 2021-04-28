@@ -1,9 +1,5 @@
-import { DictObj, WrapperObj } from "../misc";
-import { NSData } from "../ObjC/Foundation";
 
-export * from "./_MbBookNote"
-
-export declare class MbBook{
+declare class MbBook{
   readonly currentTopicId?: string;
   readonly lastVisit?: Date;
   readonly docMd5?: string;
@@ -11,7 +7,7 @@ export declare class MbBook{
   readonly docTitle?: string;
 }
 
-export declare class MbTopic {
+declare class MbTopic {
   title?: string; 
   readonly topicId?: string; 
   readonly lastVisit?: Date; 
@@ -27,7 +23,7 @@ export declare class MbTopic {
   hideLinksInMindMapNode: boolean; 
 }
 
-export declare class MbModelTool {
+declare class MbModelTool {
   /**
    * @returns MbModelTool*
    */

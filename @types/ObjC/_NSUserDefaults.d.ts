@@ -1,7 +1,5 @@
-import { WrapperObj, DictObj } from "../misc";
-import { NSData, NSURL } from "./Foundation";
 
-export declare class NSUserDefaults {
+declare class NSUserDefaults {
   /**
    * @returns NSUserDefaults*
    */

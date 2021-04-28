@@ -1,20 +1,19 @@
-import { WrapperObj, DictObj } from "../misc";
 
-export declare type NSURL = any;
+declare type NSURL = any;
 
-export declare type JSValue = any;
+declare type JSValue = any;
 
-export declare type NSDictionary = any;
+declare type NSDictionary = any;
 
-export declare type NSData = any;
+declare type NSData = any;
 
-export declare type NSIndexPath = any;
+declare type NSIndexPath = any;
 
-export declare type NSMutableArray<T=any> = Array<T>;
+declare type NSMutableArray<T=any> = Array<T>;
 
-export declare type NSIndexSet = any;
+declare type NSIndexSet = any;
 
-export declare class NSNotification {
+declare class NSNotification {
   /**
    * @param aName NSString*
    */
@@ -33,9 +32,3 @@ export declare class NSNotification {
    */
   initWithName(name: string, object: WrapperObj<any>, userInfo: DictObj): NSNotification; 
 }
-
-export * from "./_NSNotificationCenter";
-
-export * from "./_NSUserDefaults";
-
-export * from "./_NSLocale";

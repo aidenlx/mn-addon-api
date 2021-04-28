@@ -1,9 +1,5 @@
-import { DictObj } from "../misc";
-import { NSDictionary } from "../ObjC/Foundation";
-import { CGPoint } from "../ObjC/UIKit";
-import { MbTopic, MbBook } from "./NoteDatabase";
 
-export declare class MbBookNote {
+declare class MbBookNote {
   excerptText?: string;
   noteTitle?: string;
   /**int */
@@ -90,12 +86,12 @@ export declare class MbBookNote {
   static createWithTitle(title: string, topic: MbTopic, book: MbBook): MbBookNote; 
 }
 
-export declare interface pic {
+declare interface pic {
   paint: string;
   size: unknown;
 }
 
-export declare interface excerptPic extends pic{
+declare interface excerptPic extends pic{
   selLst: {
     [key: number]: {
       rotation: number;
@@ -106,7 +102,7 @@ export declare interface excerptPic extends pic{
   };
 }
 
-export declare type noteComment =
+declare type noteComment =
   | textComment
   | htmlComment
   | linkComment
@@ -114,7 +110,7 @@ export declare type noteComment =
 /**
  * 基本的Comment，合并Note时其title也被合并为此类型
  */
-export declare interface textComment {
+declare interface textComment {
   type: "TextNote";
   text: string;
   /**为被合并Note的内容时存在*/
@@ -123,7 +119,7 @@ export declare interface textComment {
 /**
  * 复制html内容进Note时产生
  */
-export declare interface htmlComment {
+declare interface htmlComment {
   type: "HtmlNote";
   htmlSize: NSDictionary;
   rtf: NSDictionary;
@@ -135,27 +131,27 @@ export declare interface htmlComment {
 /**
  * 合并Note时产生
  */
-export declare type linkComment = linkComment_text | linkComment_pic;
+declare type linkComment = linkComment_text | linkComment_pic;
 
-export declare interface linkComment_text {
+declare interface linkComment_text {
   type: "LinkNote";
   noteid: string;
   q_htext: textComment["text"];
 }
 
-export declare interface linkComment_pic {
+declare interface linkComment_pic {
   type: "LinkNote";
   noteid: string;
   q_htext?: textComment["text"];
   q_hpic: pic;
 }
 
-export declare interface paintComment extends pic 
+declare interface paintComment extends pic 
 {
   type: "PaintNote";
 }
 
-export declare interface LinkedNote {
+declare interface LinkedNote {
   summary: boolean,
   noteid: string,
   linktext: string

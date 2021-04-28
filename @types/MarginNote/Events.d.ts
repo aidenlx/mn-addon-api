@@ -1,7 +1,5 @@
-import { DocumentController } from "./Application";
-import { MbBookNote } from "./NoteDatabase";
 
-export declare type NotifySender = {
+declare type NotifySender = {
   [k:string]: any;
   userInfo: {
     [k:string]: any;
@@ -10,9 +8,9 @@ export declare type NotifySender = {
   }
 }
 
-export declare type EventHandler = (sender: NotifySender) => void;
+declare type EventHandler = (sender: NotifySender) => void;
 
-export declare type Events =
+declare type Events =
   | "PopupMenuOnNote"
   | "PopupMenuOnSelection"
   | "ChangeExcerptRange"

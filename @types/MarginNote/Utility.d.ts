@@ -1,10 +1,5 @@
-import { WrapperObj } from "../misc";
-import { JSValue, NSData } from "../ObjC/Foundation";
-import { UITableView, UIWindow } from "../ObjC/UIKit";
 
-export * from "./_SQLite";
-
-export declare class MenuController {
+declare class MenuController {
   menuTableView?: UITableView; 
   commandTable?: Array<any>; 
   sections?: Array<any>; 
@@ -22,7 +17,7 @@ export declare class MenuController {
   fontSize: number; 
 }
 
-export declare class SpeechManager {
+declare class SpeechManager {
   /**
    * @param notes NSArray*
    */
@@ -53,7 +48,7 @@ export declare class SpeechManager {
   static sharedInstance(): SpeechManager; 
 }
 
-export declare class UndoManager {
+declare class UndoManager {
   /**
    * @returns id<JSBUndoManager>
    */
@@ -71,7 +66,7 @@ export declare class UndoManager {
   clearAll(): void; 
 }
 
-export declare class ZipArchive {
+declare class ZipArchive {
   /**
    * @param path NSString*
    * @param destination NSString*

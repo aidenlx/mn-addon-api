@@ -1,9 +1,5 @@
-import { Events } from "../MarginNote/Events";
-import { WrapperObj, DictObj } from "../misc";
-import { NSNotification } from "./Foundation";
 
-
-export declare class NSNotificationCenter {
+declare class NSNotificationCenter {
   static defaultCenter(): NSNotificationCenter;
   init(): NSNotificationCenter;
   /**

@@ -1,28 +1,24 @@
-export declare type UIWindow = any;
+declare type UIWindow = any;
 
-export declare type UIView = any;
+declare type UIView = any;
 
-export declare type UIViewController = any;
+declare type UIViewController = any;
 
-export declare type UILocalNotification = any;
+declare type UILocalNotification = any;
 
-export declare type UITableView = any;
+declare type UITableView = any;
 
-export declare type UIColor = any;
+declare type UIColor = any;
 
 /** https://developer.apple.com/documentation/coregraphics/cgpoint */
-export declare type CGPoint = any;
+declare type CGPoint = any;
 
-export declare type CGRect = any;
+declare type CGRect = any;
 
-export declare type CGSize = any;
+declare type CGSize = any;
 
-export declare type CGFloat = any;
+declare type CGFloat = any;
 
-export declare type CGBlendMode = any;
+declare type CGBlendMode = any;
 
-export declare type UIEdgeInsets = any;
-
-export * from "./_UIPasteboard";
-
-export * from "./_UIImage";
+declare type UIEdgeInsets = any;

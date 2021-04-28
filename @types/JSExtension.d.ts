@@ -1,7 +1,5 @@
-import { DictObj, WrapperObj } from "./misc";
-import { UIWindow, UIViewController, UILocalNotification } from "./ObjC/UIKit";
 
-export declare class JSExtension {
+declare class JSExtension {
   readonly window?: UIWindow; 
   /** Window initialize */
   sceneWillConnect(): void; 

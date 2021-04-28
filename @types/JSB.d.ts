@@ -1,6 +1,6 @@
 import JSExtension from "./JSExtension";
 
-declare const JSB : {
+export declare const JSB : {
   /**
    * Load addon to MarginNote
    */
@@ -25,7 +25,7 @@ type ClsMembers = {
   [k in Exclude<keyof typeof JSExtension,"prototype">]?: typeof JSExtension[k]
 };
 
-declare const self : {
+export declare const self : {
   [k:string]: any;
   window: any;
   view: any;
@@ -33,7 +33,7 @@ declare const self : {
   webView: any;
 };
 
-declare const WebViewController : {
+export declare const WebViewController : {
   [k:string]: any;
   new():any;
 };

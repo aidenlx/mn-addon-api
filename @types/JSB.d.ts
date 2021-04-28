@@ -1,4 +1,4 @@
-import JSExtension from "./JSExtension";
+import { JSExtension } from "./JSExtension";
 
 export declare const JSB : {
   /**

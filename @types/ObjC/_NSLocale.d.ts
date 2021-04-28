@@ -1,6 +1,6 @@
 import { WrapperObj, DictObj } from "../misc";
 
-export class NSLocale {
+export declare class NSLocale {
   static autoupdatingCurrentLocale(): WrapperObj<NSLocale>; 
   static currentLocale(): WrapperObj<NSLocale>; 
   static systemLocale(): WrapperObj<NSLocale>; 
@@ -81,7 +81,7 @@ export class NSLocale {
   localeIdentifier(): string; 
 }
 
-export enum NSLocaleLanguageDirection {
+export declare enum NSLocaleLanguageDirection {
   BottomToTop = 4,	
   LeftToRight = 1,	
   RightToLeft = 2,	

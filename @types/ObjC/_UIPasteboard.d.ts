@@ -2,7 +2,7 @@ import { NSURL, NSData, NSIndexSet } from "./Foundation";
 import { UIColor, UIImage } from "./UIKit"
 import { WrapperObj } from "../misc";
 
-export class UIPasteboard {
+export declare class UIPasteboard {
   persistent: boolean; 
   string?: string; 
   /**

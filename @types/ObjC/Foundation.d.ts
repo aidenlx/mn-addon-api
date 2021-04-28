@@ -1,20 +1,20 @@
 import { WrapperObj, DictObj } from "../misc";
 
-export type NSURL = any;
+export declare type NSURL = any;
 
-export type JSValue = any;
+export declare type JSValue = any;
 
-export type NSDictionary = any;
+export declare type NSDictionary = any;
 
-export type NSData = any;
+export declare type NSData = any;
 
-export type NSIndexPath = any;
+export declare type NSIndexPath = any;
 
-export type NSMutableArray<T=any> = Array<T>;
+export declare type NSMutableArray<T=any> = Array<T>;
 
-export type NSIndexSet = any;
+export declare type NSIndexSet = any;
 
-export class NSNotification {
+export declare class NSNotification {
   /**
    * @param aName NSString*
    */

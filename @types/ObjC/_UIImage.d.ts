@@ -2,7 +2,7 @@ import { CGFloat, CGSize, CGPoint, CGRect, CGBlendMode, UIEdgeInsets } from "./U
 import { NSData } from "./Foundation"
 import { WrapperObj } from "../misc";
 
-export class UIImage {
+export declare class UIImage {
   readonly scale: CGFloat; 
   /**
    *  NSInteger
@@ -74,7 +74,7 @@ export class UIImage {
   pngData(): NSData; 
 }
 
-export const enum UIImageOrientation {
+export declare const enum UIImageOrientation {
   /** Rotated 180 degrees.  */
   Down = 1,
 

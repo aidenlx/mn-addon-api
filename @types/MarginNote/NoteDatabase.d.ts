@@ -3,7 +3,7 @@ import { NSData } from "../ObjC/Foundation";
 
 export * from "./_MbBookNote"
 
-export class MbBook{
+export declare class MbBook{
   readonly currentTopicId?: string;
   readonly lastVisit?: Date;
   readonly docMd5?: string;
@@ -11,7 +11,7 @@ export class MbBook{
   readonly docTitle?: string;
 }
 
-export class MbTopic {
+export declare class MbTopic {
   title?: string; 
   readonly topicId?: string; 
   readonly lastVisit?: Date; 
@@ -27,7 +27,7 @@ export class MbTopic {
   hideLinksInMindMapNode: boolean; 
 }
 
-export class MbModelTool {
+export declare class MbModelTool {
   /**
    * @returns MbModelTool*
    */

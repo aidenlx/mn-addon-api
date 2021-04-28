@@ -3,7 +3,7 @@ import { NSDictionary } from "../ObjC/Foundation";
 import { CGPoint } from "../ObjC/UIKit";
 import { MbTopic, MbBook } from "./NoteDatabase";
 
-export class MbBookNote {
+export declare class MbBookNote {
   excerptText?: string;
   noteTitle?: string;
   /**int */
@@ -90,12 +90,12 @@ export class MbBookNote {
   static createWithTitle(title: string, topic: MbTopic, book: MbBook): MbBookNote; 
 }
 
-export interface pic {
+export declare interface pic {
   paint: string;
   size: unknown;
 }
 
-export interface excerptPic extends pic{
+export declare interface excerptPic extends pic{
   selLst: {
     [key: number]: {
       rotation: number;
@@ -106,7 +106,7 @@ export interface excerptPic extends pic{
   };
 }
 
-export type noteComment =
+export declare type noteComment =
   | textComment
   | htmlComment
   | linkComment
@@ -114,7 +114,7 @@ export type noteComment =
 /**
  * 基本的Comment，合并Note时其title也被合并为此类型
  */
-export interface textComment {
+export declare interface textComment {
   type: "TextNote";
   text: string;
   /**为被合并Note的内容时存在*/
@@ -123,7 +123,7 @@ export interface textComment {
 /**
  * 复制html内容进Note时产生
  */
-export interface htmlComment {
+export declare interface htmlComment {
   type: "HtmlNote";
   htmlSize: NSDictionary;
   rtf: NSDictionary;
@@ -135,27 +135,27 @@ export interface htmlComment {
 /**
  * 合并Note时产生
  */
-export type linkComment = linkComment_text | linkComment_pic;
+export declare type linkComment = linkComment_text | linkComment_pic;
 
-export interface linkComment_text {
+export declare interface linkComment_text {
   type: "LinkNote";
   noteid: string;
   q_htext: textComment["text"];
 }
 
-export interface linkComment_pic {
+export declare interface linkComment_pic {
   type: "LinkNote";
   noteid: string;
   q_htext?: textComment["text"];
   q_hpic: pic;
 }
 
-export interface paintComment extends pic 
+export declare interface paintComment extends pic 
 {
   type: "PaintNote";
 }
 
-export interface LinkedNote {
+export declare interface LinkedNote {
   summary: boolean,
   noteid: string,
   linktext: string

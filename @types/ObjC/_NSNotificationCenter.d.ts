@@ -3,7 +3,7 @@ import { WrapperObj, DictObj } from "../misc";
 import { NSNotification } from "./Foundation";
 
 
-export class NSNotificationCenter {
+export declare class NSNotificationCenter {
   static defaultCenter(): NSNotificationCenter;
   init(): NSNotificationCenter;
   /**

@@ -4,7 +4,7 @@ import { UITableView, UIWindow } from "../ObjC/UIKit";
 
 export * from "./_SQLite";
 
-export class MenuController {
+export declare class MenuController {
   menuTableView?: UITableView; 
   commandTable?: Array<any>; 
   sections?: Array<any>; 
@@ -22,7 +22,7 @@ export class MenuController {
   fontSize: number; 
 }
 
-export class SpeechManager {
+export declare class SpeechManager {
   /**
    * @param notes NSArray*
    */
@@ -53,7 +53,7 @@ export class SpeechManager {
   static sharedInstance(): SpeechManager; 
 }
 
-export class UndoManager {
+export declare class UndoManager {
   /**
    * @returns id<JSBUndoManager>
    */
@@ -71,7 +71,7 @@ export class UndoManager {
   clearAll(): void; 
 }
 
-export class ZipArchive {
+export declare class ZipArchive {
   /**
    * @param path NSString*
    * @param destination NSString*

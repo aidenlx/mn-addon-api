@@ -43,30 +43,30 @@ declare global {
     /**
      * @param topicid NSString*
      */
-    getNotebookById(topicid: string): WrapperObj<any>;
+    getNotebookById(topicid: string): WrapperObj<MbTopic>|undefined;
     /**
      * @returns NSData*
      * @param hash NSString*
      */
-    getMediaByHash(hash: string): NSData;
+    getMediaByHash(hash: string): NSData|undefined;
     /**
      * @param noteid NSString*
      */
-    getNoteById(noteid: string): WrapperObj<any>;
+    getNoteById(noteid: string): WrapperObj<MbBookNote>|undefined;
     /**
      * @param md5 NSString*
      */
-    getDocumentById(md5: string): WrapperObj<any>;
+    getDocumentById(md5: string): WrapperObj<MbBook>|undefined;
     /**
      * @param noteid NSString*
      * @param topicid NSString*
      */
-    getFlashcardByNoteId(noteid: string, topicid: string): WrapperObj<any>;
+    getFlashcardByNoteId(noteid: string, topicid: string): WrapperObj<MbBookNote>|undefined;
     /**
      * @returns NSArray*
      * @param noteid NSString*
      */
-    getFlashcardsByNoteId(noteid: string): Array<any>;
+    getFlashcardsByNoteId(noteid: string): Array<MbBookNote>|undefined;
     /**
      * @param noteid NSString*
      */
@@ -75,11 +75,11 @@ declare global {
     /**
      * @returns NSArray*
      */
-    allNotebooks(): Array<any>;
+    allNotebooks(): Array<MbTopic>;
     /**
      * @returns NSArray*
      */
-    allDocuments(): Array<any>;
+    allDocuments(): Array<MbBook>;
     /**
      * @param topicid NSString*
      */
@@ -109,13 +109,13 @@ declare global {
      * @param notes NSArray*
      * @param topicid NSString*
      */
-    cloneNotes(notes: Array<any>, topicid: string): Array<any>;
+    cloneNotes(notes: Array<MbBookNote>, topicid: string): Array<MbBookNote>;
     /**
      * @returns NSArray*
      * @param notes NSArray*
      * @param topicid NSString*
      */
-    cloneNotesToFlashcards(notes: Array<any>, topicid: string): Array<any>;
+    cloneNotesToFlashcards(notes: Array<MbBookNote>, topicid: string): Array<MbBookNote>;
     /**
      * @param topicid NSString*
      * @param storePath NSString*

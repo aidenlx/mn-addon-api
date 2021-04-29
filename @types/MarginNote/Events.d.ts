@@ -5,8 +5,8 @@ declare global {
     [k: string]: any;
     userInfo: {
       [k: string]: any;
-      note: MbBookNote;
-      documentController: DocumentController;
+      note?: MbBookNote;
+      documentController?: DocumentController;
     };
   };
 

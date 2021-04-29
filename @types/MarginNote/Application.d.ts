@@ -19,31 +19,6 @@ declare global {
     readonly cachePath?: string;
     readonly tempPath?: string;
     readonly osType: osType;
-
-    refreshAfterDBChanged(topicid: string): void;
-    /**
-     *
-     * @param command
-     * @param keyFlags must be int
-     * @param window
-     */
-    queryCommandWithKeyFlagsInWindow(
-      command: string,
-      keyFlags: number,
-      window: UIWindow
-    ): NSDictionary;
-    /**
-     *
-     * @param command
-     * @param keyFlags must be int
-     * @param window
-     */
-    processCommand(command: string, keyFlags: number, window: UIWindow): void;
-
-    openURL(url: NSURL): void;
-
-    alert(message: string): void;
-
     /**
      * @param topicid NSString*
      */

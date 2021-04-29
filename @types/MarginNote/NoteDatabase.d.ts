@@ -26,11 +26,20 @@ declare global {
     hideLinksInMindMapNode: boolean;
   }
 
-  class MbModelTool {
+  const Database: {
     /**
+     * accessor to MbModelTool in global scope
      * @returns MbModelTool*
      */
-    static sharedInstance(): MbModelTool;
+    sharedInstance(): MbModelTool;
+  };
+
+  class MbModelTool {
+    /**
+     * not accessible as a static function in global scope, use {@link Database} instead
+     * @returns MbModelTool*
+     */
+    // static sharedInstance(): MbModelTool;
     /**
      * @param topicid NSString*
      */
@@ -121,3 +130,4 @@ declare global {
     ): WrapperObj<any>;
   }
 }
+

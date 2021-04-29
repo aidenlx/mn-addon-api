@@ -1,11 +1,6 @@
 import { mapType as mapTypeCore } from "./typeMap";
 import assertNever from "assert-never";
 
-type a =
-  | { type: "prop"; hint: string }
-  | { type: "arg"; name: string; hint: string }
-  | { type: "ret"; hint: string };
-
 type HintBasic = {
   type: "prop"|"arg"|"ret";
   hint: string;

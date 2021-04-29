@@ -1,4 +1,71 @@
-export {};
+import { DictObj } from "../misc";
+import { MbTopic, MbBook } from "./NoteDatabase";
+
+export interface pic {
+  paint: string;
+  size: unknown;
+}
+
+export interface excerptPic extends pic {
+  selLst: {
+    [key: number]: {
+      rotation: number;
+      imgRect: unknown;
+      rect: unknown;
+      pageNo: number;
+    };
+  };
+}
+
+export type noteComment = textComment | htmlComment | linkComment | paintComment;
+/**
+ * 基本的Comment，合并Note时其title也被合并为此类型
+ */
+export interface textComment {
+  type: "TextNote";
+  text: string;
+  /**为被合并Note的内容时存在*/
+  noteid?: string;
+}
+/**
+ * 复制html内容进Note时产生
+ */
+export interface htmlComment {
+  type: "HtmlNote";
+  htmlSize: NSDictionary;
+  rtf: NSDictionary;
+  html: string;
+  text: string;
+  /**为被合并Note的内容时存在*/
+  noteid?: string;
+}
+/**
+ * 合并Note时产生
+ */
+export type linkComment = linkComment_text | linkComment_pic;
+
+export interface linkComment_text {
+  type: "LinkNote";
+  noteid: string;
+  q_htext: textComment["text"];
+}
+
+export interface linkComment_pic {
+  type: "LinkNote";
+  noteid: string;
+  q_htext?: textComment["text"];
+  q_hpic: pic;
+}
+
+export interface paintComment extends pic {
+  type: "PaintNote";
+}
+
+export interface LinkedNote {
+  summary: boolean;
+  noteid: string;
+  linktext: string;
+}
 
 declare global {
   class MbBookNote {
@@ -90,71 +157,5 @@ declare global {
       topic: MbTopic,
       book: MbBook
     ): MbBookNote;
-  }
-
-  interface pic {
-    paint: string;
-    size: unknown;
-  }
-
-  interface excerptPic extends pic {
-    selLst: {
-      [key: number]: {
-        rotation: number;
-        imgRect: unknown;
-        rect: unknown;
-        pageNo: number;
-      };
-    };
-  }
-
-  type noteComment = textComment | htmlComment | linkComment | paintComment;
-  /**
-   * 基本的Comment，合并Note时其title也被合并为此类型
-   */
-  interface textComment {
-    type: "TextNote";
-    text: string;
-    /**为被合并Note的内容时存在*/
-    noteid?: string;
-  }
-  /**
-   * 复制html内容进Note时产生
-   */
-  interface htmlComment {
-    type: "HtmlNote";
-    htmlSize: NSDictionary;
-    rtf: NSDictionary;
-    html: string;
-    text: string;
-    /**为被合并Note的内容时存在*/
-    noteid?: string;
-  }
-  /**
-   * 合并Note时产生
-   */
-  type linkComment = linkComment_text | linkComment_pic;
-
-  interface linkComment_text {
-    type: "LinkNote";
-    noteid: string;
-    q_htext: textComment["text"];
-  }
-
-  interface linkComment_pic {
-    type: "LinkNote";
-    noteid: string;
-    q_htext?: textComment["text"];
-    q_hpic: pic;
-  }
-
-  interface paintComment extends pic {
-    type: "PaintNote";
-  }
-
-  interface LinkedNote {
-    summary: boolean;
-    noteid: string;
-    linktext: string;
   }
 }

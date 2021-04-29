@@ -1,3 +1,6 @@
+import { WrapperObj, DictObj } from "misc";
+import { Event } from "../MarginNote/Events";
+
 export {};
 
 declare global {
@@ -154,7 +157,7 @@ declare global {
     addObserverSelectorName(
       observer: WrapperObj<any>,
       aSelector: string,
-      aName: Events
+      aName: Event
     ): void;
     /**
      * @param notification NSNotification*
@@ -177,7 +180,7 @@ declare global {
     /**
      * @param aName NSString*
      */
-    removeObserverName(observer: WrapperObj<any>, aName: Events): void;
+    removeObserverName(observer: WrapperObj<any>, aName: Event): void;
   }
 
   class NSUserDefaults {

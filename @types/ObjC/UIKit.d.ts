@@ -1,3 +1,5 @@
+import { WrapperObj } from "misc";
+
 export {};
 
 declare global {

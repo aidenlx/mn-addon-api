@@ -1,3 +1,3 @@
-export {};
-
-declare global {}
+declare class SQLite {
+  
+}

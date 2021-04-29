@@ -2,14 +2,12 @@
   "name": "@alx-plugins/marginnote",
   "version": "1.2.0",
   "description": "Unofficial type definitions for MarginNote 3 addon API",
-  "types": "out.d.ts",
+  "types": "@types/main.d.ts",
   "files": [
-    "out.d.ts"
+    "@types/**/*.d.ts"
   ],
   "main": "",
   "scripts": {
-    "preversion": "find @types -type f -name '*.d.ts' -exec cat {} + >out.d.ts && git add out.d.ts",
-    "build": "find @types -type f -name '*.d.ts' -exec cat {} + >out.d.ts && git add out.d.ts",
     "cvt": "ts-node convert.ts"
   },
   "repository": {

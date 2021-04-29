@@ -5,8 +5,8 @@
  * a JavaScript wrapper object is converted back to Objective-C the Objective-C 
  * instance being retained by the wrapper is returned.
  */
-declare type WrapperObj<T> = T;
+export type WrapperObj<T> = T;
 
-declare type DictObj = {
+export type DictObj = {
   [k: string]: any;
 };

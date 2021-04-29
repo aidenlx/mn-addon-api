@@ -13,8 +13,5 @@
   },
   "include": [
     "*.ts","@types/**/*.d.ts"
-  ],
-  "exclude": [
-    "out.d.ts"
   ]
 }

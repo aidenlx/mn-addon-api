@@ -1,72 +1,73 @@
-export {};
+/// <reference path="./_SQLite.d.ts" />
 
+import { WrapperObj } from "../misc";
+
+export class MenuController {
+  menuTableView?: UITableView;
+  commandTable?: Array<any>;
+  sections?: Array<any>;
+  /**
+   *  int
+   */
+  rowHeight: number;
+  /**
+   *  int
+   */
+  secHeight: number;
+  /**
+   *  int
+   */
+  fontSize: number;
+}
 
 declare global {
-  class MenuController {
-    menuTableView?: UITableView; 
-    commandTable?: Array<any>; 
-    sections?: Array<any>; 
-    /**
-     *  int
-     */
-    rowHeight: number; 
-    /**
-     *  int
-     */
-    secHeight: number; 
-    /**
-     *  int
-     */
-    fontSize: number; 
-  }
-
   class SpeechManager {
     /**
      * @param notes NSArray*
      */
-    startSpeechNotes(notes: Array<any>): void; 
-    stopSpeech(): void; 
-    pauseSpeech(): void; 
-    continueSpeech(): void; 
-    prevSpeech(): void; 
-    nextSpeech(): void; 
-    canPrev(): boolean; 
-    canNext(): boolean; 
+    startSpeechNotes(notes: Array<any>): void;
+    stopSpeech(): void;
+    pauseSpeech(): void;
+    continueSpeech(): void;
+    prevSpeech(): void;
+    nextSpeech(): void;
+    canPrev(): boolean;
+    canNext(): boolean;
     /**
      * @param text NSString*
      */
-    playText(text: string): void; 
+    playText(text: string): void;
     /**
      * @param text NSString*
      * @param languageTxt NSString*
      */
-    playTextLanguageTxt(text: string, languageTxt: string): void; 
-    readonly speaking: boolean; 
-    readonly paused: boolean; 
-    sceneWindow?: UIWindow; 
-    languageCode?: string; 
+    playTextLanguageTxt(text: string, languageTxt: string): void;
+    readonly speaking: boolean;
+    readonly paused: boolean;
+    sceneWindow?: UIWindow;
+    languageCode?: string;
     /**
      * @returns SpeechManager*
      */
-    static sharedInstance(): SpeechManager; 
+    static sharedInstance(): SpeechManager;
   }
 
   class UndoManager {
     /**
      * @returns id<JSBUndoManager>
      */
-    static sharedInstance(): WrapperObj<UndoManager>; 
+    static sharedInstance(): WrapperObj<UndoManager>;
     /**
      * @param actionName NSString*
      * @param topicid NSString*
      * @param block JSValue*
      */
-    undoGrouping(actionName: string, topicid: string, block: JSValue): void; 
-    undo(): void; 
-    redo(): void; 
-    canUndo(): boolean; 
-    canRedo(): boolean; 
-    clearAll(): void; 
+    undoGrouping(actionName: string, topicid: string, block: JSValue): void;
+    undo(): void;
+    redo(): void;
+    canUndo(): boolean;
+    canRedo(): boolean;
+    clearAll(): void;
   }
 
   class ZipArchive {

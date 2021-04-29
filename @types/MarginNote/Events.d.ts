@@ -1,4 +1,5 @@
 import { DocumentController } from "./Application";
+import { MbBookNote } from "./NoteDatabase";
 
 export type EventHandler<T extends NotifySender = NotifySender> = (
   sender: T

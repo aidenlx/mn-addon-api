@@ -1,5 +1,5 @@
 import { DictObj, WrapperObj } from "../misc";
-import { MbBook } from "./NoteDatabase";
+import { MbBook, MbBookNote } from "./NoteDatabase";
 
 export const enum osType {
   iPadOS = 0,

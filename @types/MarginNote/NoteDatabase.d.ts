@@ -1,7 +1,7 @@
-/// <reference path="./_MbBookNote.d.ts" />
 export * from "./_MbBookNote"
 
 import { DictObj, WrapperObj } from "../misc";
+import { MbBookNote } from "./_MbBookNote";
 
 export class MbBook {
   readonly currentTopicId?: string;

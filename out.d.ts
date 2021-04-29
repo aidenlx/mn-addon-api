@@ -139,8 +139,8 @@ declare global {
     [k: string]: any;
     userInfo: {
       [k: string]: any;
-      note: MbBookNote;
-      documentController: DocumentController;
+      note?: MbBookNote;
+      documentController?: DocumentController;
     };
   };
 
@@ -457,11 +457,20 @@ declare global {
     hideLinksInMindMapNode: boolean;
   }
 
-  class MbModelTool {
+  const Database: {
     /**
+     * accessor to MbModelTool in global scope
      * @returns MbModelTool*
      */
-    static sharedInstance(): MbModelTool;
+    sharedInstance(): MbModelTool;
+  };
+
+  class MbModelTool {
+    /**
+     * not accessible as a static function in global scope, use {@link Database} instead
+     * @returns MbModelTool*
+     */
+    // static sharedInstance(): MbModelTool;
     /**
      * @param topicid NSString*
      */
@@ -552,6 +561,7 @@ declare global {
     ): WrapperObj<any>;
   }
 }
+
 export {};
 
 declare global {
@@ -573,31 +583,6 @@ declare global {
     readonly cachePath?: string;
     readonly tempPath?: string;
     readonly osType: osType;
-
-    refreshAfterDBChanged(topicid: string): void;
-    /**
-     *
-     * @param command
-     * @param keyFlags must be int
-     * @param window
-     */
-    queryCommandWithKeyFlagsInWindow(
-      command: string,
-      keyFlags: number,
-      window: UIWindow
-    ): NSDictionary;
-    /**
-     *
-     * @param command
-     * @param keyFlags must be int
-     * @param window
-     */
-    processCommand(command: string, keyFlags: number, window: UIWindow): void;
-
-    openURL(url: NSURL): void;
-
-    alert(message: string): void;
-
     /**
      * @param topicid NSString*
      */

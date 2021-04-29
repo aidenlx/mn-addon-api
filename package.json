@@ -8,8 +8,8 @@
   ],
   "main": "",
   "scripts": {
-    "preversion": "find @types -type f -name '*.d.ts' -exec cat {} + >>out.d.ts",
-    "build": "find @types -type f -name '*.d.ts' -exec cat {} + >>out.d.ts"
+    "preversion": "find @types -type f -name '*.d.ts' -exec cat {} + >out.d.ts && git add out.d.ts",
+    "build": "find @types -type f -name '*.d.ts' -exec cat {} + >out.d.ts && git add out.d.ts"
   },
   "repository": {
     "type": "git",

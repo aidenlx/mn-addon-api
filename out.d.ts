@@ -118,12 +118,12 @@ declare class JSExtension {
    * @param command NSString*
    * @param keyFlags NSInteger
    */
-  queryShortcutKey(command: string, keyFlags: number): DictObj; 
+  queryShortcutKeyWithKeyFlags(command: string, keyFlags: number): DictObj; 
   /**
    * @param command NSString*
    * @param keyFlags NSInteger
    */
-  processShortcutKey(command: string, keyFlags: number): void; 
+  processShortcutKeyWithKeyFlags(command: string, keyFlags: number): void; 
   static addonDidConnect(): void; 
   static addonWillDisconnect(): void; 
   static applicationDidEnterBackground(): void; 
@@ -239,7 +239,7 @@ declare global {
      * @param topic MbTopic*
      * @param book MbBook*
      */
-    static createWithTitle(
+    static createWithTitleNotebookDocument(
       title: string,
       topic: MbTopic,
       book: MbBook
@@ -317,70 +317,70 @@ export {};
 
 declare global {
   class MenuController {
-    menuTableView?: UITableView;
-    commandTable?: Array<any>;
-    sections?: Array<any>;
+    menuTableView?: UITableView; 
+    commandTable?: Array<any>; 
+    sections?: Array<any>; 
     /**
      *  int
      */
-    rowHeight: number;
+    rowHeight: number; 
     /**
      *  int
      */
-    secHeight: number;
+    secHeight: number; 
     /**
      *  int
      */
-    fontSize: number;
+    fontSize: number; 
   }
 
   class SpeechManager {
     /**
      * @param notes NSArray*
      */
-    startSpeechNotes(notes: Array<any>): void;
-    stopSpeech(): void;
-    pauseSpeech(): void;
-    continueSpeech(): void;
-    prevSpeech(): void;
-    nextSpeech(): void;
-    canPrev(): boolean;
-    canNext(): boolean;
+    startSpeechNotes(notes: Array<any>): void; 
+    stopSpeech(): void; 
+    pauseSpeech(): void; 
+    continueSpeech(): void; 
+    prevSpeech(): void; 
+    nextSpeech(): void; 
+    canPrev(): boolean; 
+    canNext(): boolean; 
     /**
      * @param text NSString*
      */
-    playText(text: string): void;
+    playText(text: string): void; 
     /**
      * @param text NSString*
      * @param languageTxt NSString*
      */
-    playText(text: string, languageTxt: string): void;
-    readonly speaking: boolean;
-    readonly paused: boolean;
-    sceneWindow?: UIWindow;
-    languageCode?: string;
+    playTextLanguageTxt(text: string, languageTxt: string): void; 
+    readonly speaking: boolean; 
+    readonly paused: boolean; 
+    sceneWindow?: UIWindow; 
+    languageCode?: string; 
     /**
      * @returns SpeechManager*
      */
-    static sharedInstance(): SpeechManager;
+    static sharedInstance(): SpeechManager; 
   }
 
   class UndoManager {
     /**
      * @returns id<JSBUndoManager>
      */
-    static sharedInstance(): WrapperObj<UndoManager>;
+    static sharedInstance(): WrapperObj<UndoManager>; 
     /**
      * @param actionName NSString*
      * @param topicid NSString*
      * @param block JSValue*
      */
-    undoGrouping(actionName: string, topicid: string, block: JSValue): void;
-    undo(): void;
-    redo(): void;
-    canUndo(): boolean;
-    canRedo(): boolean;
-    clearAll(): void;
+    undoGrouping(actionName: string, topicid: string, block: JSValue): void; 
+    undo(): void; 
+    redo(): void; 
+    canUndo(): boolean; 
+    canRedo(): boolean; 
+    clearAll(): void; 
   }
 
   class ZipArchive {
@@ -388,13 +388,16 @@ declare global {
      * @param path NSString*
      * @param destination NSString*
      */
-    static unzipFileAtPath(path: string, destination: string): boolean;
+    static unzipFileAtPathToDestination(
+      path: string,
+      destination: string
+    ): boolean;
     /**
      * @param path NSString*
      * @param destination NSString*
      * @param password NSString*
      */
-    static unzipFileAtPath(
+    static unzipFileAtPathToDestinationOverwritePassword(
       path: string,
       destination: string,
       overwrite: boolean,
@@ -404,12 +407,18 @@ declare global {
      * @param path NSString*
      * @param filenames NSArray*
      */
-    static createZipFileAtPath(path: string, filenames: Array<any>): boolean;
+    static createZipFileAtPathWithFilesAtPaths(
+      path: string,
+      filenames: Array<any>
+    ): boolean;
     /**
      * @param path NSString*
      * @param directoryPath NSString*
      */
-    static createZipFileAtPath(path: string, directoryPath: string): boolean;
+    static createZipFileAtPathWithContentsOfDirectory(
+      path: string,
+      directoryPath: string
+    ): boolean;
     /**
      * @param path NSString*
      */
@@ -423,7 +432,7 @@ declare global {
      * @param data NSData*
      * @param filename NSString*
      */
-    writeData(data: NSData, filename: string): boolean;
+    writeDataFilename(data: NSData, filename: string): boolean;
     close(): boolean;
   }
 }
@@ -520,13 +529,13 @@ declare global {
      * @param topicid NSString*
      * @param key NSString*
      */
-    saveHistoryArchive(topicid: string, key: string): Array<any>;
+    saveHistoryArchiveKey(topicid: string, key: string): Array<any>;
     /**
      * @returns NSArray*
      * @param topicid NSString*
      * @param key NSString*
      */
-    loadHistoryArchive(topicid: string, key: string): Array<any>;
+    loadHistoryArchiveKey(topicid: string, key: string): Array<any>;
     /**
      * @param noteid NSString*
      */
@@ -540,22 +549,28 @@ declare global {
      * @param notes NSArray*
      * @param topicid NSString*
      */
-    cloneNotes(notes: Array<MbBookNote>, topicid: string): Array<MbBookNote>;
+    cloneNotesToTopic(
+      notes: Array<MbBookNote>,
+      topicid: string
+    ): Array<MbBookNote>;
     /**
      * @returns NSArray*
      * @param notes NSArray*
      * @param topicid NSString*
      */
-    cloneNotesToFlashcards(notes: Array<MbBookNote>, topicid: string): Array<MbBookNote>;
+    cloneNotesToFlashcardsToTopic(
+      notes: Array<MbBookNote>,
+      topicid: string
+    ): Array<MbBookNote>;
     /**
      * @param topicid NSString*
      * @param storePath NSString*
      */
-    exportNotebook(topicid: string, storePath: string): boolean;
+    exportNotebookStorePath(topicid: string, storePath: string): boolean;
     /**
      * @param storePath NSString*
      */
-    importNotebookFromStorePath(
+    importNotebookFromStorePathMerge(
       storePath: string,
       merge: boolean
     ): WrapperObj<any>;
@@ -603,7 +618,11 @@ declare global {
      * @param keyFlags NSInteger
      * @param window UIWindow*
      */
-    processCommand(command: string, keyFlags: number, window: UIWindow): void;
+    processCommandWithKeyFlagsInWindow(
+      command: string,
+      keyFlags: number,
+      window: UIWindow
+    ): void;
     /**
      * @param url NSURL*
      */
@@ -622,7 +641,7 @@ declare global {
      * @param message NSString*
      * @param view UIView*
      */
-    waitHUD(message: string, view: UIView): void;
+    waitHUDOnView(message: string, view: UIView): void;
     /**
      * @param view UIView*
      */
@@ -631,7 +650,7 @@ declare global {
      * @param mfile NSString*
      * @param uti NSString*
      */
-    saveFile(mfile: string, uti: string): void;
+    saveFileWithUti(mfile: string, uti: string): void;
     /**
      * @returns id<JSBStudyController>
      * @param window UIWindow*
@@ -790,7 +809,7 @@ declare global {
     readonly numberOfItems: number;
     URL?: NSURL;
     color?: UIColor;
-    colors?: Array<UIColor>;
+    colors?: Array<any>;
     image?: UIImage;
     /**
      *  NSInteger
@@ -809,7 +828,7 @@ declare global {
      * @returns UIPasteboard*
      * @param pasteboardName NSString*
      */
-    static pasteboardWithName(
+    static pasteboardWithNameCreate(
       pasteboardName: string,
       create: boolean
     ): UIPasteboard;
@@ -841,12 +860,15 @@ declare global {
     /**
      * @param pasteboardType NSString*
      */
-    setValue(value: WrapperObj<any>, pasteboardType: string): void;
+    setValueForPasteboardType(
+      value: WrapperObj<any>,
+      pasteboardType: string
+    ): void;
     /**
      * @param data NSData*
      * @param pasteboardType NSString*
      */
-    setData(data: NSData, pasteboardType: string): void;
+    setDataForPasteboardType(data: NSData, pasteboardType: string): void;
     /**
      * @returns NSArray*
      * @param itemSet NSIndexSet*
@@ -856,7 +878,7 @@ declare global {
      * @param pasteboardTypes NSArray*
      * @param itemSet NSIndexSet*
      */
-    containsPasteboardTypes(
+    containsPasteboardTypesInItemSet(
       pasteboardTypes: Array<any>,
       itemSet: NSIndexSet
     ): boolean;
@@ -870,7 +892,7 @@ declare global {
      * @param pasteboardType NSString*
      * @param itemSet NSIndexSet*
      */
-    valuesForPasteboardType(
+    valuesForPasteboardTypeInItemSet(
       pasteboardType: string,
       itemSet: NSIndexSet
     ): Array<any>;
@@ -879,7 +901,7 @@ declare global {
      * @param pasteboardType NSString*
      * @param itemSet NSIndexSet*
      */
-    dataForPasteboardType(
+    dataForPasteboardTypeInItemSet(
       pasteboardType: string,
       itemSet: NSIndexSet
     ): Array<any>;
@@ -921,7 +943,7 @@ declare global {
      * @returns UIImage*
      * @param data NSData*
      */
-    static imageWithData(data: NSData, scale: CGFloat): UIImage;
+    static imageWithDataScale(data: NSData, scale: CGFloat): UIImage;
     /**
      * @returns UIImage*
      */
@@ -929,16 +951,23 @@ declare global {
     /**
      * @returns UIImage*
      */
-    static imageWithCGImage(
+    static imageWithCGImageScaleOrientation(
       cgImage: WrapperObj<any>,
       scale: CGFloat,
       orientation: UIImageOrientation
     ): UIImage;
-
     drawAtPoint(point: CGPoint): void;
-    drawAtPoint(point: CGPoint, blendMode: CGBlendMode, alpha: CGFloat): void;
+    drawAtPointBlendModeAlpha(
+      point: CGPoint,
+      blendMode: CGBlendMode,
+      alpha: CGFloat
+    ): void;
     drawInRect(rect: CGRect): void;
-    drawInRect(rect: CGRect, blendMode: CGBlendMode, alpha: CGFloat): void;
+    drawInRectBlendModeAlpha(
+      rect: CGRect,
+      blendMode: CGBlendMode,
+      alpha: CGFloat
+    ): void;
     drawAsPatternInRect(rect: CGRect): void;
     /**
      * @returns UIImage*
@@ -953,7 +982,7 @@ declare global {
      * @param leftCapWidth NSInteger
      * @param topCapHeight NSInteger
      */
-    stretchableImageWithLeftCapWidth(
+    stretchableImageWithLeftCapWidthTopCapHeight(
       leftCapWidth: number,
       topCapHeight: number
     ): UIImage;
@@ -1015,7 +1044,7 @@ declare global {
     /**
      * @param aName NSString*
      */
-    static notificationWithName(
+    static notificationWithNameObject(
       aName: string,
       anObject: WrapperObj<any>
     ): NSNotification;
@@ -1023,7 +1052,7 @@ declare global {
      * @param aName NSString*
      * @param aUserInfo NSDictionary*
      */
-    static notificationWithName(
+    static notificationWithNameObjectUserInfo(
       aName: string,
       anObject: WrapperObj<any>,
       aUserInfo: DictObj
@@ -1035,7 +1064,7 @@ declare global {
      * @param name NSString*
      * @param userInfo NSDictionary*
      */
-    initWithName(
+    initWithNameObjectUserInfo(
       name: string,
       object: WrapperObj<any>,
       userInfo: DictObj
@@ -1122,7 +1151,10 @@ declare global {
     /**
      * @returns NSString*
      */
-    displayNameForKey(key: WrapperObj<any>, value: WrapperObj<any>): string;
+    displayNameForKeyValue(
+      key: WrapperObj<any>,
+      value: WrapperObj<any>
+    ): string;
     /**
      * @returns NSString*
      */
@@ -1156,12 +1188,12 @@ declare global {
     /**
      * @param aName NSString*
      */
-    postNotificationName(aName: string, anObject: WrapperObj<any>): void;
+    postNotificationNameObject(aName: string, anObject: WrapperObj<any>): void;
     /**
      * @param aName NSString*
      * @param aUserInfo NSDictionary*
      */
-    postNotificationName(
+    postNotificationNameObjectUserInfo(
       aName: string,
       anObject: WrapperObj<any>,
       aUserInfo: DictObj
@@ -1182,149 +1214,149 @@ declare global {
     /**
      * @param defaultName NSString*
      */
-    objectForKey(defaultName: string): WrapperObj<any>;
+    objectForKey(defaultName: string): WrapperObj<any>; 
     /**
      * @param defaultName NSString*
      */
-    setObject(value: WrapperObj<any>, defaultName: string): void;
+    setObjectForKey(value: WrapperObj<any>, defaultName: string): void; 
     /**
      * @param defaultName NSString*
      */
-    removeObjectForKey(defaultName: string): void;
+    removeObjectForKey(defaultName: string): void; 
     /**
      * @returns NSString*
      * @param defaultName NSString*
      */
-    stringForKey(defaultName: string): string;
+    stringForKey(defaultName: string): string; 
     /**
      * @returns NSArray*
      * @param defaultName NSString*
      */
-    arrayForKey(defaultName: string): Array<any>;
+    arrayForKey(defaultName: string): Array<any>; 
     /**
      * @returns NSDictionary*
      * @param defaultName NSString*
      */
-    dictionaryForKey(defaultName: string): DictObj;
+    dictionaryForKey(defaultName: string): DictObj; 
     /**
      * @returns NSData*
      * @param defaultName NSString*
      */
-    dataForKey(defaultName: string): NSData;
+    dataForKey(defaultName: string): NSData; 
     /**
      * @returns NSArray*
      * @param defaultName NSString*
      */
-    stringArrayForKey(defaultName: string): Array<any>;
+    stringArrayForKey(defaultName: string): Array<any>; 
     /**
      * @returns NSInteger
      * @param defaultName NSString*
      */
-    integerForKey(defaultName: string): number;
+    integerForKey(defaultName: string): number; 
     /**
      * @returns float
      * @param defaultName NSString*
      */
-    floatForKey(defaultName: string): number;
+    floatForKey(defaultName: string): number; 
     /**
      * @returns double
      * @param defaultName NSString*
      */
-    doubleForKey(defaultName: string): number;
+    doubleForKey(defaultName: string): number; 
     /**
      * @param defaultName NSString*
      */
-    boolForKey(defaultName: string): boolean;
+    boolForKey(defaultName: string): boolean; 
     /**
      * @returns NSURL*
      * @param defaultName NSString*
      */
-    URLForKey(defaultName: string): NSURL;
+    URLForKey(defaultName: string): NSURL; 
     /**
      * @param value NSInteger
      * @param defaultName NSString*
      */
-    setInteger(value: number, defaultName: string): void;
+    setIntegerForKey(value: number, defaultName: string): void; 
     /**
      * @param value float
      * @param defaultName NSString*
      */
-    setFloat(value: number, defaultName: string): void;
+    setFloatForKey(value: number, defaultName: string): void; 
     /**
      * @param value double
      * @param defaultName NSString*
      */
-    setDouble(value: number, defaultName: string): void;
+    setDoubleForKey(value: number, defaultName: string): void; 
     /**
      * @param defaultName NSString*
      */
-    setBool(value: boolean, defaultName: string): void;
+    setBoolForKey(value: boolean, defaultName: string): void; 
     /**
      * @param url NSURL*
      * @param defaultName NSString*
      */
-    setURL(url: NSURL, defaultName: string): void;
+    setURLForKey(url: NSURL, defaultName: string): void; 
     /**
      * @param registrationDictionary NSDictionary*
      */
-    registerDefaults(registrationDictionary: DictObj): void;
+    registerDefaults(registrationDictionary: DictObj): void; 
     /**
      * @param suiteName NSString*
      */
-    addSuiteNamed(suiteName: string): void;
+    addSuiteNamed(suiteName: string): void; 
     /**
      * @param suiteName NSString*
      */
-    removeSuiteNamed(suiteName: string): void;
+    removeSuiteNamed(suiteName: string): void; 
     /**
      * @returns NSDictionary*
      */
-    dictionaryRepresentation(): DictObj;
+    dictionaryRepresentation(): DictObj; 
     /**
      * @returns NSArray*
      */
-    volatileDomainNames(): Array<any>;
+    volatileDomainNames(): Array<any>; 
     /**
      * @returns NSDictionary*
      * @param domainName NSString*
      */
-    volatileDomainForName(domainName: string): DictObj;
+    volatileDomainForName(domainName: string): DictObj; 
     /**
      * @param domain NSDictionary*
      * @param domainName NSString*
      */
-    setVolatileDomain(domain: DictObj, domainName: string): void;
+    setVolatileDomainForName(domain: DictObj, domainName: string): void; 
     /**
      * @param domainName NSString*
      */
-    removeVolatileDomainForName(domainName: string): void;
+    removeVolatileDomainForName(domainName: string): void; 
     /**
      * @returns NSArray*
      */
-    persistentDomainNames(): Array<any>;
+    persistentDomainNames(): Array<any>; 
     /**
      * @returns NSDictionary*
      * @param domainName NSString*
      */
-    persistentDomainForName(domainName: string): DictObj;
+    persistentDomainForName(domainName: string): DictObj; 
     /**
      * @param domain NSDictionary*
      * @param domainName NSString*
      */
-    setPersistentDomain(domain: DictObj, domainName: string): void;
+    setPersistentDomainForName(domain: DictObj, domainName: string): void; 
     /**
      * @param domainName NSString*
      */
-    removePersistentDomainForName(domainName: string): void;
-    synchronize(): boolean;
+    removePersistentDomainForName(domainName: string): void; 
+    synchronize(): boolean; 
     /**
      * @param key NSString*
      */
-    objectIsForcedForKey(key: string): boolean;
+    objectIsForcedForKey(key: string): boolean; 
     /**
      * @param key NSString*
      * @param domain NSString*
      */
-    objectIsForcedForKey(key: string, domain: string): boolean;
+    objectIsForcedForKeyInDomain(key: string, domain: string): boolean; 
   }
 }

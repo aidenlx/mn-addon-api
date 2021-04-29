@@ -39,7 +39,11 @@ declare global {
      * @param keyFlags NSInteger
      * @param window UIWindow*
      */
-    processCommand(command: string, keyFlags: number, window: UIWindow): void;
+    processCommandWithKeyFlagsInWindow(
+      command: string,
+      keyFlags: number,
+      window: UIWindow
+    ): void;
     /**
      * @param url NSURL*
      */
@@ -58,7 +62,7 @@ declare global {
      * @param message NSString*
      * @param view UIView*
      */
-    waitHUD(message: string, view: UIView): void;
+    waitHUDOnView(message: string, view: UIView): void;
     /**
      * @param view UIView*
      */
@@ -67,7 +71,7 @@ declare global {
      * @param mfile NSString*
      * @param uti NSString*
      */
-    saveFile(mfile: string, uti: string): void;
+    saveFileWithUti(mfile: string, uti: string): void;
     /**
      * @returns id<JSBStudyController>
      * @param window UIWindow*

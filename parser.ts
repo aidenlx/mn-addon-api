@@ -1,6 +1,10 @@
 import { mapType as mapTypeCore } from "./typeMap";
 import assertNever from "assert-never";
 
+function Capitalize(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 type HintBasic = {
   type: "prop"|"arg"|"ret";
   hint: string;
@@ -32,10 +36,14 @@ export function parse(line: string) {
     line = parseProp(line);
   } else if (line.startsWith("JSExportAs(")) {
     line = bracketTrim(line,2);
-    line = line
-      .replace(/^JSExportAs\((.+),([-+] \(.+?\)).+?:/, "$2$1:")
-      .replace(/\);$/, ";");
-    line = parseFunc(line);
+    const regex = /^JSExportAs\((.+),/;
+    const match = line.match(regex);
+    if (!match){
+      console.error("JSExportAs unable to parse: " + line);
+    } else {
+      line = line.replace(regex, "").replace(/\);$/, ";");
+      line = parseFunc(line, match[1]);
+    }
   } else if (line.startsWith("- ") || line.startsWith("+ ")) {
     line = bracketTrim(line,1);
     line = parseFunc(line);
@@ -107,7 +115,7 @@ function renderHints(hints:Hint[]) {
   return hintComment;
 }
 
-export function parseFunc(line: string) {
+export function parseFunc(line: string, funcName?:string) {
 
   const mark = line[0] === "+" ? "static" : "";
   let out = line
@@ -126,7 +134,7 @@ export function parseFunc(line: string) {
   out = out.substring(returnType.length+2).trim();
 
   const args = [];
-  let name;
+  let name: string;
 
   if (!/[:\(\)]/.test(out)) {
     name = out;
@@ -141,12 +149,16 @@ export function parseFunc(line: string) {
     if (rawArgs.length > 1) {
       rawArgs.shift();
       args.push(
-        ...rawArgs.map((match) => ({ type: match[2], name: match[3] }))
+        ...rawArgs.map((match) => {
+          /** {@link https://developer.apple.com/documentation/javascriptcore/jsexport#3737781} */
+          name += Capitalize(match[1]);
+          return { type: match[2], name: match[3] };
+        })
       );
     }
   }
 
-  return tsFuncDef(name, returnType, args, mark);
+  return tsFuncDef(funcName??name, returnType, args, mark);
 }
 
 const tsPropDef = (name: string, type: string, mark: string | null | undefined) => {

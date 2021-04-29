@@ -89,13 +89,13 @@ declare global {
      * @param topicid NSString*
      * @param key NSString*
      */
-    saveHistoryArchive(topicid: string, key: string): Array<any>;
+    saveHistoryArchiveKey(topicid: string, key: string): Array<any>;
     /**
      * @returns NSArray*
      * @param topicid NSString*
      * @param key NSString*
      */
-    loadHistoryArchive(topicid: string, key: string): Array<any>;
+    loadHistoryArchiveKey(topicid: string, key: string): Array<any>;
     /**
      * @param noteid NSString*
      */
@@ -109,22 +109,28 @@ declare global {
      * @param notes NSArray*
      * @param topicid NSString*
      */
-    cloneNotes(notes: Array<MbBookNote>, topicid: string): Array<MbBookNote>;
+    cloneNotesToTopic(
+      notes: Array<MbBookNote>,
+      topicid: string
+    ): Array<MbBookNote>;
     /**
      * @returns NSArray*
      * @param notes NSArray*
      * @param topicid NSString*
      */
-    cloneNotesToFlashcards(notes: Array<MbBookNote>, topicid: string): Array<MbBookNote>;
+    cloneNotesToFlashcardsToTopic(
+      notes: Array<MbBookNote>,
+      topicid: string
+    ): Array<MbBookNote>;
     /**
      * @param topicid NSString*
      * @param storePath NSString*
      */
-    exportNotebook(topicid: string, storePath: string): boolean;
+    exportNotebookStorePath(topicid: string, storePath: string): boolean;
     /**
      * @param storePath NSString*
      */
-    importNotebookFromStorePath(
+    importNotebookFromStorePathMerge(
       storePath: string,
       merge: boolean
     ): WrapperObj<any>;

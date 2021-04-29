@@ -35,7 +35,7 @@ declare global {
     readonly numberOfItems: number;
     URL?: NSURL;
     color?: UIColor;
-    colors?: Array<UIColor>;
+    colors?: Array<any>;
     image?: UIImage;
     /**
      *  NSInteger
@@ -54,7 +54,7 @@ declare global {
      * @returns UIPasteboard*
      * @param pasteboardName NSString*
      */
-    static pasteboardWithName(
+    static pasteboardWithNameCreate(
       pasteboardName: string,
       create: boolean
     ): UIPasteboard;
@@ -86,12 +86,15 @@ declare global {
     /**
      * @param pasteboardType NSString*
      */
-    setValue(value: WrapperObj<any>, pasteboardType: string): void;
+    setValueForPasteboardType(
+      value: WrapperObj<any>,
+      pasteboardType: string
+    ): void;
     /**
      * @param data NSData*
      * @param pasteboardType NSString*
      */
-    setData(data: NSData, pasteboardType: string): void;
+    setDataForPasteboardType(data: NSData, pasteboardType: string): void;
     /**
      * @returns NSArray*
      * @param itemSet NSIndexSet*
@@ -101,7 +104,7 @@ declare global {
      * @param pasteboardTypes NSArray*
      * @param itemSet NSIndexSet*
      */
-    containsPasteboardTypes(
+    containsPasteboardTypesInItemSet(
       pasteboardTypes: Array<any>,
       itemSet: NSIndexSet
     ): boolean;
@@ -115,7 +118,7 @@ declare global {
      * @param pasteboardType NSString*
      * @param itemSet NSIndexSet*
      */
-    valuesForPasteboardType(
+    valuesForPasteboardTypeInItemSet(
       pasteboardType: string,
       itemSet: NSIndexSet
     ): Array<any>;
@@ -124,7 +127,7 @@ declare global {
      * @param pasteboardType NSString*
      * @param itemSet NSIndexSet*
      */
-    dataForPasteboardType(
+    dataForPasteboardTypeInItemSet(
       pasteboardType: string,
       itemSet: NSIndexSet
     ): Array<any>;
@@ -166,7 +169,7 @@ declare global {
      * @returns UIImage*
      * @param data NSData*
      */
-    static imageWithData(data: NSData, scale: CGFloat): UIImage;
+    static imageWithDataScale(data: NSData, scale: CGFloat): UIImage;
     /**
      * @returns UIImage*
      */
@@ -174,16 +177,23 @@ declare global {
     /**
      * @returns UIImage*
      */
-    static imageWithCGImage(
+    static imageWithCGImageScaleOrientation(
       cgImage: WrapperObj<any>,
       scale: CGFloat,
       orientation: UIImageOrientation
     ): UIImage;
-
     drawAtPoint(point: CGPoint): void;
-    drawAtPoint(point: CGPoint, blendMode: CGBlendMode, alpha: CGFloat): void;
+    drawAtPointBlendModeAlpha(
+      point: CGPoint,
+      blendMode: CGBlendMode,
+      alpha: CGFloat
+    ): void;
     drawInRect(rect: CGRect): void;
-    drawInRect(rect: CGRect, blendMode: CGBlendMode, alpha: CGFloat): void;
+    drawInRectBlendModeAlpha(
+      rect: CGRect,
+      blendMode: CGBlendMode,
+      alpha: CGFloat
+    ): void;
     drawAsPatternInRect(rect: CGRect): void;
     /**
      * @returns UIImage*
@@ -198,7 +208,7 @@ declare global {
      * @param leftCapWidth NSInteger
      * @param topCapHeight NSInteger
      */
-    stretchableImageWithLeftCapWidth(
+    stretchableImageWithLeftCapWidthTopCapHeight(
       leftCapWidth: number,
       topCapHeight: number
     ): UIImage;

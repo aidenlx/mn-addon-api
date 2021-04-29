@@ -59,12 +59,12 @@ declare class JSExtension {
    * @param command NSString*
    * @param keyFlags NSInteger
    */
-  queryShortcutKey(command: string, keyFlags: number): DictObj; 
+  queryShortcutKeyWithKeyFlags(command: string, keyFlags: number): DictObj; 
   /**
    * @param command NSString*
    * @param keyFlags NSInteger
    */
-  processShortcutKey(command: string, keyFlags: number): void; 
+  processShortcutKeyWithKeyFlags(command: string, keyFlags: number): void; 
   static addonDidConnect(): void; 
   static addonWillDisconnect(): void; 
   static applicationDidEnterBackground(): void; 

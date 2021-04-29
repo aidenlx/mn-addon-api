@@ -85,7 +85,7 @@ declare global {
      * @param topic MbTopic*
      * @param book MbBook*
      */
-    static createWithTitle(
+    static createWithTitleNotebookDocument(
       title: string,
       topic: MbTopic,
       book: MbBook

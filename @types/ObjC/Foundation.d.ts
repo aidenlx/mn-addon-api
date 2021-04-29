@@ -19,7 +19,7 @@ declare global {
     /**
      * @param aName NSString*
      */
-    static notificationWithName(
+    static notificationWithNameObject(
       aName: string,
       anObject: WrapperObj<any>
     ): NSNotification;
@@ -27,7 +27,7 @@ declare global {
      * @param aName NSString*
      * @param aUserInfo NSDictionary*
      */
-    static notificationWithName(
+    static notificationWithNameObjectUserInfo(
       aName: string,
       anObject: WrapperObj<any>,
       aUserInfo: DictObj
@@ -39,7 +39,7 @@ declare global {
      * @param name NSString*
      * @param userInfo NSDictionary*
      */
-    initWithName(
+    initWithNameObjectUserInfo(
       name: string,
       object: WrapperObj<any>,
       userInfo: DictObj
@@ -126,7 +126,10 @@ declare global {
     /**
      * @returns NSString*
      */
-    displayNameForKey(key: WrapperObj<any>, value: WrapperObj<any>): string;
+    displayNameForKeyValue(
+      key: WrapperObj<any>,
+      value: WrapperObj<any>
+    ): string;
     /**
      * @returns NSString*
      */
@@ -160,12 +163,12 @@ declare global {
     /**
      * @param aName NSString*
      */
-    postNotificationName(aName: string, anObject: WrapperObj<any>): void;
+    postNotificationNameObject(aName: string, anObject: WrapperObj<any>): void;
     /**
      * @param aName NSString*
      * @param aUserInfo NSDictionary*
      */
-    postNotificationName(
+    postNotificationNameObjectUserInfo(
       aName: string,
       anObject: WrapperObj<any>,
       aUserInfo: DictObj
@@ -186,149 +189,149 @@ declare global {
     /**
      * @param defaultName NSString*
      */
-    objectForKey(defaultName: string): WrapperObj<any>;
+    objectForKey(defaultName: string): WrapperObj<any>; 
     /**
      * @param defaultName NSString*
      */
-    setObject(value: WrapperObj<any>, defaultName: string): void;
+    setObjectForKey(value: WrapperObj<any>, defaultName: string): void; 
     /**
      * @param defaultName NSString*
      */
-    removeObjectForKey(defaultName: string): void;
+    removeObjectForKey(defaultName: string): void; 
     /**
      * @returns NSString*
      * @param defaultName NSString*
      */
-    stringForKey(defaultName: string): string;
+    stringForKey(defaultName: string): string; 
     /**
      * @returns NSArray*
      * @param defaultName NSString*
      */
-    arrayForKey(defaultName: string): Array<any>;
+    arrayForKey(defaultName: string): Array<any>; 
     /**
      * @returns NSDictionary*
      * @param defaultName NSString*
      */
-    dictionaryForKey(defaultName: string): DictObj;
+    dictionaryForKey(defaultName: string): DictObj; 
     /**
      * @returns NSData*
      * @param defaultName NSString*
      */
-    dataForKey(defaultName: string): NSData;
+    dataForKey(defaultName: string): NSData; 
     /**
      * @returns NSArray*
      * @param defaultName NSString*
      */
-    stringArrayForKey(defaultName: string): Array<any>;
+    stringArrayForKey(defaultName: string): Array<any>; 
     /**
      * @returns NSInteger
      * @param defaultName NSString*
      */
-    integerForKey(defaultName: string): number;
+    integerForKey(defaultName: string): number; 
     /**
      * @returns float
      * @param defaultName NSString*
      */
-    floatForKey(defaultName: string): number;
+    floatForKey(defaultName: string): number; 
     /**
      * @returns double
      * @param defaultName NSString*
      */
-    doubleForKey(defaultName: string): number;
+    doubleForKey(defaultName: string): number; 
     /**
      * @param defaultName NSString*
      */
-    boolForKey(defaultName: string): boolean;
+    boolForKey(defaultName: string): boolean; 
     /**
      * @returns NSURL*
      * @param defaultName NSString*
      */
-    URLForKey(defaultName: string): NSURL;
+    URLForKey(defaultName: string): NSURL; 
     /**
      * @param value NSInteger
      * @param defaultName NSString*
      */
-    setInteger(value: number, defaultName: string): void;
+    setIntegerForKey(value: number, defaultName: string): void; 
     /**
      * @param value float
      * @param defaultName NSString*
      */
-    setFloat(value: number, defaultName: string): void;
+    setFloatForKey(value: number, defaultName: string): void; 
     /**
      * @param value double
      * @param defaultName NSString*
      */
-    setDouble(value: number, defaultName: string): void;
+    setDoubleForKey(value: number, defaultName: string): void; 
     /**
      * @param defaultName NSString*
      */
-    setBool(value: boolean, defaultName: string): void;
+    setBoolForKey(value: boolean, defaultName: string): void; 
     /**
      * @param url NSURL*
      * @param defaultName NSString*
      */
-    setURL(url: NSURL, defaultName: string): void;
+    setURLForKey(url: NSURL, defaultName: string): void; 
     /**
      * @param registrationDictionary NSDictionary*
      */
-    registerDefaults(registrationDictionary: DictObj): void;
+    registerDefaults(registrationDictionary: DictObj): void; 
     /**
      * @param suiteName NSString*
      */
-    addSuiteNamed(suiteName: string): void;
+    addSuiteNamed(suiteName: string): void; 
     /**
      * @param suiteName NSString*
      */
-    removeSuiteNamed(suiteName: string): void;
+    removeSuiteNamed(suiteName: string): void; 
     /**
      * @returns NSDictionary*
      */
-    dictionaryRepresentation(): DictObj;
+    dictionaryRepresentation(): DictObj; 
     /**
      * @returns NSArray*
      */
-    volatileDomainNames(): Array<any>;
+    volatileDomainNames(): Array<any>; 
     /**
      * @returns NSDictionary*
      * @param domainName NSString*
      */
-    volatileDomainForName(domainName: string): DictObj;
+    volatileDomainForName(domainName: string): DictObj; 
     /**
      * @param domain NSDictionary*
      * @param domainName NSString*
      */
-    setVolatileDomain(domain: DictObj, domainName: string): void;
+    setVolatileDomainForName(domain: DictObj, domainName: string): void; 
     /**
      * @param domainName NSString*
      */
-    removeVolatileDomainForName(domainName: string): void;
+    removeVolatileDomainForName(domainName: string): void; 
     /**
      * @returns NSArray*
      */
-    persistentDomainNames(): Array<any>;
+    persistentDomainNames(): Array<any>; 
     /**
      * @returns NSDictionary*
      * @param domainName NSString*
      */
-    persistentDomainForName(domainName: string): DictObj;
+    persistentDomainForName(domainName: string): DictObj; 
     /**
      * @param domain NSDictionary*
      * @param domainName NSString*
      */
-    setPersistentDomain(domain: DictObj, domainName: string): void;
+    setPersistentDomainForName(domain: DictObj, domainName: string): void; 
     /**
      * @param domainName NSString*
      */
-    removePersistentDomainForName(domainName: string): void;
-    synchronize(): boolean;
+    removePersistentDomainForName(domainName: string): void; 
+    synchronize(): boolean; 
     /**
      * @param key NSString*
      */
-    objectIsForcedForKey(key: string): boolean;
+    objectIsForcedForKey(key: string): boolean; 
     /**
      * @param key NSString*
      * @param domain NSString*
      */
-    objectIsForcedForKey(key: string, domain: string): boolean;
+    objectIsForcedForKeyInDomain(key: string, domain: string): boolean; 
   }
 }

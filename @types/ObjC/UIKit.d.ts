@@ -1,4 +1,4 @@
-import { WrapperObj } from "misc";
+import { WrapperObj } from "../misc";
 
 export {};
 

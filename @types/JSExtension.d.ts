@@ -1,4 +1,4 @@
-import { WrapperObj, DictObj } from "misc";
+import { WrapperObj, DictObj } from "./misc";
 
 declare global {
   class JSExtension {

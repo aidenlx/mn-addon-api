@@ -1,4 +1,4 @@
-import { WrapperObj, DictObj } from "misc";
+import { WrapperObj, DictObj } from "../misc";
 import { Event } from "../MarginNote/Events";
 
 export {};

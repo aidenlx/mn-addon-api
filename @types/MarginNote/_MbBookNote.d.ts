@@ -37,10 +37,10 @@ export interface textComment {
  */
 export interface htmlComment {
   type: "HtmlNote";
-  htmlSize: NSDictionary;
-  rtf: NSDictionary;
+  htmlSize: DictObj;
+  rtf: DictObj;
   html: string;
-  text?: string;
+  text: string;
   /**为被合并Note的内容时存在*/
   noteid?: string;
 }

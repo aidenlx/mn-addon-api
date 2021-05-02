@@ -40,7 +40,7 @@ export interface htmlComment {
   htmlSize: NSDictionary;
   rtf: NSDictionary;
   html: string;
-  text: string;
+  text?: string;
   /**为被合并Note的内容时存在*/
   noteid?: string;
 }

@@ -1,10 +1,11 @@
 import { WrapperObj, DictObj } from "../misc";
 import { Event } from "../MarginNote/Events";
+export * from './_NSURL'
+/// <reference path="./_NSURL.d.ts" />
 
 export {};
 
 declare global {
-  type NSURL = any;
 
   type JSValue = any;
 
@@ -17,6 +18,10 @@ declare global {
   type NSMutableArray<T = any> = Array<T>;
 
   type NSIndexSet = any;
+
+  type NSCharacterSet = any;
+
+  type NSError = any;
 
   class NSNotification {
     /**

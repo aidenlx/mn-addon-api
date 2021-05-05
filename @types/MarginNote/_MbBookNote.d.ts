@@ -84,13 +84,16 @@ export class MbBookNote {
   readonly noteId?: string;
   readonly docMd5?: string;
   readonly notebookId?: string;
+  /** int */
   readonly startPage?: number;
+  /** int */
   readonly endPage?: number;
   readonly startPos?: string;
   readonly endPos?: string;
   readonly excerptPic?: excerptPic;
   readonly createDate?: Date;
   readonly modifiedDate?: Date;
+  /** list of media hash seprated by '-' */
   readonly mediaList?: string;
   readonly originNoteId?: string;
   readonly mindmapBranchClose?: number;
@@ -107,15 +110,21 @@ export class MbBookNote {
    */
   readonly summaryLinks: string[];
 
-  readonly zLevel?: number | boolean;
-  readonly hidden?: number | boolean;
-  readonly toc?: number | boolean;
-  readonly annotation?: number | boolean;
-  readonly textFirst?: number | boolean;
-  readonly groupMode?: number | boolean;
-  readonly flashcard?: number | boolean;
-  readonly summary: boolean;
-  readonly flagged?: number | boolean;
+  /** int */
+  readonly zLevel?: number;
+  readonly hidden?: boolean;
+  /** int */
+  readonly toc?: number;
+  readonly annotation?: boolean;
+  readonly textFirst?: boolean;
+  /** int */
+  readonly groupMode?: number;
+  /** int */
+  readonly flashcard?: number;
+  /** int */
+  readonly summary: number;
+  /** int */
+  readonly flagged?: number;
   readonly textHighlight?: {
     highlight_text: string;
     coords_hash: string;

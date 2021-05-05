@@ -11,7 +11,7 @@ declare global {
     static scheduledTimerWithTimeInterval(
       ti: NSTimeInterval,
       yesOrNo: boolean,
-      block: Function
+      block: (timer: NSTimer) => void
     ): NSTimer;
     fire(): void;
     /**

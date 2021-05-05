@@ -4,6 +4,8 @@ export * from './_NSURL'
 /// <reference path="./_NSURL.d.ts" />
 export * from './_NSData'
 /// <reference path="./_NSData.d.ts" />
+export * from './_NSTimer'
+/// <reference path="./_NSTimer.d.ts" />
 
 export {};
 
@@ -15,7 +17,6 @@ declare global {
    * On its own, a time interval does not specify a unique point in time, 
    * or even a span between specific times. Combining a time interval with 
    * one or more known reference points yields a NSDate or NSDateInterval value. */
-  type NSTimeInterval = number;
 
   type JSValue = any;
 

@@ -2,6 +2,8 @@ import { WrapperObj, DictObj } from "../misc";
 import { Event } from "../MarginNote/Events";
 export * from './_NSURL'
 /// <reference path="./_NSURL.d.ts" />
+export * from './_NSData'
+/// <reference path="./_NSData.d.ts" />
 
 export {};
 
@@ -11,7 +13,7 @@ declare global {
 
   type NSDictionary = any;
 
-  type NSData = any;
+  type NSRange = any;
 
   type NSIndexPath = any;
 

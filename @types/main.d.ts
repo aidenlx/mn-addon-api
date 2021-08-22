@@ -38,8 +38,8 @@ declare global {
     /**
      * Define the main body of the addon
      * @param declar define class interface in Objective C: `${addonName} : JSExtension`
-     * @param inst all instance member in the addon class
-     * @param cls all class (static) member in the addon class
+     * @param inst all instance member in the addon class, loaded in every window
+     * @param cls all class (static) member in the addon class, loaded only once
      */
     defineClass(
       declar: string,

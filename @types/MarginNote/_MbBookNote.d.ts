@@ -64,6 +64,8 @@ export interface linkComment_pic {
 
 export interface paintComment extends pic {
   type: "PaintNote";
+  strokes: string;
+  size: unknown;
 }
 
 export interface LinkedNote {

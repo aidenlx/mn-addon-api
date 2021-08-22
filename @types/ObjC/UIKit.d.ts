@@ -60,7 +60,7 @@ declare global {
       delegate: WrapperObj<any>,
       cancelButtonTitle: string,
       otherButtonTitles: Array<any>
-    ): WrapperObj<any>;
+    ): UIAlertView;
     /**
      * @param title NSString*
      * @param message NSString*
@@ -75,7 +75,7 @@ declare global {
       cancelButtonTitle: string,
       otherButtonTitles: Array<any>,
       tapBlock: JSValue
-    ): any;
+    ): UIAlertView;
     /**
      * @returns NSInteger
      * @param title NSString*

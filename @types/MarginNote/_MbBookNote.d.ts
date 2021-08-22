@@ -1,13 +1,10 @@
 import { DictObj } from "../misc";
 import { MbTopic, MbBook } from "./NoteDatabase";
 
-export interface pic {
+export interface excerptPic {
   paint: string;
   size: unknown;
-}
-
-export interface excerptPic extends pic {
-  selLst: {
+  selLst?: {
     [key: number]: {
       rotation: number;
       imgRect: unknown;
@@ -15,6 +12,11 @@ export interface excerptPic extends pic {
       pageNo: number;
     };
   };
+}
+export interface excerptPic_video extends excerptPic {
+  video: string;
+  video_ext: string;
+  video_offset: number;
 }
 
 export type noteComment =
@@ -59,12 +61,14 @@ export interface linkComment_pic {
   type: "LinkNote";
   noteid: string;
   q_htext?: textComment["text"];
-  q_hpic: pic;
+  q_hpic: excerptPic;
 }
 
-export interface paintComment extends pic {
+export interface paintComment {
   type: "PaintNote";
   strokes: string;
+  /** exists if draw on pic */
+  paint?: string;
   size: unknown;
 }
 
@@ -92,7 +96,7 @@ export class MbBookNote {
   readonly endPage?: number;
   readonly startPos?: string;
   readonly endPos?: string;
-  readonly excerptPic?: excerptPic;
+  readonly excerptPic?: excerptPic | excerptPic_video;
   readonly createDate?: Date;
   readonly modifiedDate?: Date;
   /** list of media hash seprated by '-' */

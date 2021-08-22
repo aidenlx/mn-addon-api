@@ -28,6 +28,79 @@ declare global {
 
   type UIEdgeInsets = any;
 
+  type UITextField = any;
+
+  class UIAlertView {
+    /**
+     *  NSInteger
+     */
+    readonly numberOfButtons: number;
+    readonly visible: boolean;
+    /**
+     *  NSInteger
+     */
+    cancelButtonIndex: number;
+    title?: string;
+    message?: string;
+    delegate: WrapperObj<any>;
+    alertViewStyle: UIAlertViewStyle;
+    /**
+     *  NSInteger
+     */
+    readonly firstOtherButtonIndex: number;
+    /**
+     * @param title NSString*
+     * @param message NSString*
+     * @param cancelButtonTitle NSString*
+     * @param otherButtonTitles NSArray*
+     */
+    static makeWithTitleMessageDelegateCancelButtonTitleOtherButtonTitles(
+      title: string,
+      message: string,
+      delegate: WrapperObj<any>,
+      cancelButtonTitle: string,
+      otherButtonTitles: Array<any>
+    ): WrapperObj<any>;
+    /**
+     * @param title NSString*
+     * @param message NSString*
+     * @param cancelButtonTitle NSString*
+     * @param otherButtonTitles NSArray*
+     * @param tapBlock JSValue*
+     */
+    static showWithTitleMessageStyleCancelButtonTitleOtherButtonTitlesTapBlock(
+      title: string,
+      message: string,
+      style: UIAlertViewStyle,
+      cancelButtonTitle: string,
+      otherButtonTitles: Array<any>,
+      tapBlock: JSValue
+    ): any;
+    /**
+     * @returns NSInteger
+     * @param title NSString*
+     */
+    addButtonWithTitle(title: string): number;
+    /**
+     * @returns NSString*
+     * @param buttonIndex NSInteger
+     */
+    buttonTitleAtIndex(buttonIndex: number): string;
+    show(): void;
+    /**
+     * @param buttonIndex NSInteger
+     */
+    dismissWithClickedButtonIndexAnimated(
+      buttonIndex: number,
+      animated: boolean
+    ): void;
+    /**
+     * @returns UITextField*
+     * @param textFieldIndex NSInteger
+     */
+    textFieldAtIndex(textFieldIndex: number): UITextField;
+  }
+
   class UIPasteboard {
     persistent: boolean;
     string?: string;
@@ -249,5 +322,18 @@ declare global {
 
     /** Flipped about its vertical axis.  */
     UpMirrored = 4,
+  }
+  const enum UIAlertViewStyle {
+    /** A standard alert. */
+    Default = 0,
+
+    /** Allows the user to enter a login id and a password. */
+    LoginAndPasswordInput = 3,
+
+    /** Allows the user to enter text. */
+    PlainTextInput = 2,
+
+    /** Allows the user to enter text, but the text field is obscured. */
+    SecureTextInput = 1,
   }
 }

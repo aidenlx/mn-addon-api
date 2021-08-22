@@ -59,7 +59,7 @@ declare global {
       message: string,
       delegate: WrapperObj<any>,
       cancelButtonTitle: string,
-      otherButtonTitles: Array<any>
+      otherButtonTitles: string[]
     ): UIAlertView;
     /**
      * @param title NSString*
@@ -73,8 +73,8 @@ declare global {
       message: string,
       style: UIAlertViewStyle,
       cancelButtonTitle: string,
-      otherButtonTitles: Array<any>,
-      tapBlock: JSValue
+      otherButtonTitles: string[],
+      tapBlock: (alert: UIAlertView) => any
     ): UIAlertView;
     /**
      * @returns NSInteger

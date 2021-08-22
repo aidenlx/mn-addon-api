@@ -74,7 +74,7 @@ declare global {
       style: UIAlertViewStyle,
       cancelButtonTitle: string,
       otherButtonTitles: string[],
-      tapBlock: (alert: UIAlertView) => any
+      tapBlock: (alert: UIAlertView, tappedButtonIndex: number) => any
     ): UIAlertView;
     /**
      * @returns NSInteger

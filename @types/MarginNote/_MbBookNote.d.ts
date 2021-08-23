@@ -120,7 +120,7 @@ export class MbBookNote {
   readonly zLevel?: number;
   readonly hidden?: boolean;
   /** int */
-  readonly toc?: number;
+  readonly toc?: 0 | 1;
   readonly annotation?: boolean;
   readonly textFirst?: boolean;
   /** int */

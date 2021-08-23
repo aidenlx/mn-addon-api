@@ -18,21 +18,21 @@ declare global {
    * or even a span between specific times. Combining a time interval with 
    * one or more known reference points yields a NSDate or NSDateInterval value. */
 
-  type JSValue = any;
+  type JSValue = unknown;
 
-  type NSDictionary = any;
+  type NSDictionary = unknown;
 
-  type NSRange = any;
+  type NSRange = unknown;
 
-  type NSIndexPath = any;
+  type NSIndexPath = unknown;
 
   type NSMutableArray<T = any> = Array<T>;
 
-  type NSIndexSet = any;
+  type NSIndexSet = unknown;
 
-  type NSCharacterSet = any;
+  type NSCharacterSet = unknown;
 
-  type NSError = any;
+  type NSError = unknown;
 
   class NSNotification {
     /**

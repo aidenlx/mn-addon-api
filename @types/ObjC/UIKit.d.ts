@@ -3,32 +3,32 @@ import { WrapperObj } from "../misc";
 export {};
 
 declare global {
-  type UIWindow = any;
+  type UIWindow = unknown;
 
-  type UIView = any;
+  type UIView = unknown;
 
-  type UIViewController = any;
+  type UIViewController = unknown;
 
-  type UILocalNotification = any;
+  type UILocalNotification = unknown;
 
-  type UITableView = any;
+  type UITableView = unknown;
 
-  type UIColor = any;
+  type UIColor = unknown;
 
   /** https://developer.apple.com/documentation/coregraphics/cgpoint */
-  type CGPoint = any;
+  type CGPoint = unknown;
 
-  type CGRect = any;
+  type CGRect = unknown;
 
-  type CGSize = any;
+  type CGSize = unknown;
 
-  type CGFloat = any;
+  type CGFloat = unknown;
 
-  type CGBlendMode = any;
+  type CGBlendMode = unknown;
 
-  type UIEdgeInsets = any;
+  type UIEdgeInsets = unknown;
 
-  type UITextField = any;
+  type UITextField = unknown;
 
   class UIAlertView {
     /**

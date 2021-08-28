@@ -70,6 +70,8 @@ export interface paintComment {
   /** exists if draw on pic */
   paint?: string;
   size: unknown;
+  /**为被合并Note的内容时存在*/
+  noteid?: string;
 }
 
 export interface LinkedNote {

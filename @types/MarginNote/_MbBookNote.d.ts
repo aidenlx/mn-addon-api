@@ -31,6 +31,8 @@ export type noteComment =
 export interface textComment {
   type: "TextNote";
   text: string;
+  /**被合并Note的标题*/
+  istitle?: boolean;
   /**为被合并Note的内容时存在*/
   noteid?: string;
 }

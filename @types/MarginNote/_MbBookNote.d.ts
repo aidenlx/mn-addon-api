@@ -154,9 +154,10 @@ export class MbBookNote {
   /**
    * @param html NSString*
    * @param text NSString*
+   * @param size CGSize*
    * @param tag NSString*
    */
-  appendHtmlComment(html: string, text: string, tag: string): void;
+  appendHtmlComment(html: string, text: string,size:object, tag: string): void;
   /**
    * @param text NSString*
    */

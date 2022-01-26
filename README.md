@@ -15,6 +15,7 @@ When converting between JavaScript values and Objective-C objects a copy is perf
 |      NSNull      |          null           |
 |     NSString     |         string          |
 |     NSNumber     |     number, boolean     |
+|     CGSize       |      Object object      |
 |   NSDictionary   |      Object object      |
 |     NSArray      |      Array object       |
 |      NSDate      |       Date object       |
